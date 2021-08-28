@@ -112,5 +112,13 @@
         - 1.1.1 is exact version, is written without any sign
           - in npm => npm i react@15.1.1 to specify exact version
   - 5. DevDependencies and Global Package
+    - dev dependency is used when we need the package while developing not while running the app
+    - to install package as dev dependency we use `npm i package-name --save-dev`
+    - package will be saved under dedDependency property
+    - some package needs to be installed globally, ie: nodemon is a global package of npm, it helps to reload development server after code change
+    - the flag for global package is `-g` or `--global`
+    - `npm list -g` to view globally installed packages
+    - root option will show the root of the app `npm root`
+    - `npm root -g` will show the root of global package
   - 6. Updating and Uninstalling Packages
   - 7. Publishing Packages
