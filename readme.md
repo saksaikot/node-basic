@@ -96,6 +96,21 @@
       -
 
   - 4. Semantic Versioning
+    - npm i // will install all required package that is in package.json file
+    - npm list // will display the modules that is installed by npm
+    - npm list // will also display the installed dependency
+    - versioning
+      - sample version values:`"date-format": "^3.0.0"`
+      - the numbers are Major.Minor.Patch
+      - this versioning process is called semantic versioning
+      - bug fix is Patch update, it will increase Patch part by 1
+      - old feature with new feature will update Minor version 1.1.1=>1.2.0
+      - existing functionality change with added new feature,or the api is changed,then update major, 1.1.1->2.0.0
+      - sign before version:
+        - ^ Caret sign : will update to latest minor version // shorthand 1.x
+        - ~ tilde [Teelda]: will update latest patched version // shorthand 1.1.x
+        - 1.1.1 is exact version, is written without any sign
+          - in npm => npm i react@15.1.1 to specify exact version
   - 5. DevDependencies and Global Package
   - 6. Updating and Uninstalling Packages
   - 7. Publishing Packages
