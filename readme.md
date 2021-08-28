@@ -60,3 +60,42 @@
         }
       }
       ```
+
+- # 05. Node Package Manager
+
+  - 1. initializing node package
+    - npm - Node Package Manager, node package repository, auto installed with node
+    - address npmjs.com
+    - node -v / node --version to get installed node version
+    - npm -v to check installed npm version
+    - npm i -g npm@6.14.5 , to install npm version 6.14.5 globally, i shorthand for install and -g shorthand for global
+    - npm init to initialize npm project, this will ask some question about the project like project name, version,author etc,
+    - npm init --yes / npm init -y to init the project with all default answer
+  - 2. Installing packages and package dependency
+
+    - will use date-format package
+    - search date-format in npmjs.com
+    - address https://www.npmjs.com/package/date-format
+    - uses instruction is given in the documentation
+    - `npm i date-format` to install date-format
+    - under node_modules date-format file will be installed
+    - there will also change in package.json, the date-format property will be added under dependency property
+    - in package-lock.json, there will be package installation url
+    - under node_modules folder inside date-format there is another package.json file, inside this if any other dependency package is needed that file is also be installed under node_modules folder
+    - so after working on project and adding or install any packages will increase the size of node_modules folder
+
+  - 3. using packages
+
+    - require(''), lookup order:
+      - first it will check built-in modules
+      - then it will check any installed module in local node_modules folder
+      - if we need to import our own module then we will use relative path of that file, "./relative_path/filename"
+    - documentation address https://www.npmjs.com/package/date-format
+    - to use the date-format module we use
+      - `const dateFormat=require('date-format')`
+      -
+
+  - 4. Semantic Versioning
+  - 5. DevDependencies and Global Package
+  - 6. Updating and Uninstalling Packages
+  - 7. Publishing Packages
