@@ -133,3 +133,17 @@
     - then make sure the package name in unique in npmjs to check for package name use `npm search package-name`, and have a index.js with `module.exports`
     - then `npm publish` to publish, must verify email address before publish
     - `npm version major|minor|patch` will update the version, or we can manually update package.json
+
+- # 06. Version Control with git
+  - # 1. Setting Up Git
+    - version controlling system keep tracks of file modification and can revert changes and helps managing a project including multiple person developing same project
+    - install git from https://git-scm.com/downloads
+    - just stick to default is enough
+    - to check if git is installed `git --version`
+    - then add few config to configure git
+    - `git config --global user.name "Name Of The User"`
+    - `git config --global user.email github@user.email`
+    - `git config --list` to see all configs
+  - # 2. Git Commit
+  - # 3. More Git Commands
+  - # 4. Online Git Repositories
