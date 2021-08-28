@@ -121,4 +121,15 @@
     - root option will show the root of the app `npm root`
     - `npm root -g` will show the root of global package
   - 6. Updating and Uninstalling Packages
+    - `npm outdated` will show packages updatable information like current version, wanted latest version and actual latest version
+    - `npm update` will update package if it updatable
+    - for global packages
+      - `npm outdated -g`
+      - `npm update -g`
+    - to uninstall package use npm `uninstall` or `un` then package name, if the package is global then add `-g` flag
   - 7. Publishing Packages
+    - `npm adduser` to register to npmjs
+    - `npm login` to login to npmjs
+    - then make sure the package name in unique in npmjs to check for package name use `npm search package-name`, and have a index.js with `module.exports`
+    - then `npm publish` to publish, must verify email address before publish
+    - `npm version major|minor|patch` will update the version, or we can manually update package.json
