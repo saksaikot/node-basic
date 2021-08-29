@@ -145,5 +145,20 @@
     - `git config --global user.email github@user.email`
     - `git config --list` to see all configs
   - # 2. Git Commit
+    - to initialize git `git init`
+    - `git status` to check the status
+    - untracked file is also called unstaged file
+    - to add changed file into staged file use `git add filename1 filename2 ...` or `git add .`
+    - `git commit -m"commit message"` to make a new point
+    - `git log` git detail log
+    - `git log --oneline` git log in oneline // sort version
+    - head works like cursor pointer in a text editor, where the head is pointing the files will be on that version
+    - `git checkout commit-id filename` to see that old committed file
+    - `git checkout -- filename.ext` to revert to the latest file version
+    - use a `.gitignore` file to list any files or directory to ignore from git, it help full for ignoring dependency that can be installed from file, any build directory, or any log file that is not mandatory for project.
+    - # we must specify gitignore before a commit, any listed file that is already committed will not be ignore
+    - for only filename we use just `filename.ext`
+    - for directory we use forward slash '/' `/ignore-directory-name`
+    - 'node_modules' is an example we can ignore it in gitignore `/node_modules`
   - # 3. More Git Commands
   - # 4. Online Git Repositories
