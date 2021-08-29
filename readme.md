@@ -135,6 +135,7 @@
     - `npm version major|minor|patch` will update the version, or we can manually update package.json
 
 - # 06. Version Control with git
+
   - # 1. Setting Up Git
     - version controlling system keep tracks of file modification and can revert changes and helps managing a project including multiple person developing same project
     - install git from https://git-scm.com/downloads
@@ -145,6 +146,7 @@
     - `git config --global user.email github@user.email`
     - `git config --list` to see all configs
   - # 2. Git Commit
+
     - to initialize git `git init`
     - `git status` to check the status
     - untracked file is also called unstaged file
@@ -153,6 +155,8 @@
     - `git log` git detail log
     - `git log --oneline` git log in oneline // sort version
     - head works like cursor pointer in a text editor, where the head is pointing the files will be on that version
+
+  - # 3. More Git Commands
     - `git checkout commit-id filename` to see that old committed file
     - `git checkout -- filename.ext` to revert to the latest file version
     - use a `.gitignore` file to list any files or directory to ignore from git, it help full for ignoring dependency that can be installed from file, any build directory, or any log file that is not mandatory for project.
@@ -160,5 +164,102 @@
     - for only filename we use just `filename.ext`
     - for directory we use forward slash '/' `/ignore-directory-name`
     - 'node_modules' is an example we can ignore it in gitignore `/node_modules`
-  - # 3. More Git Commands
   - # 4. Online Git Repositories
+    - git is a version controlling system, while github provide online or cloud version of git system.
+
+- # 07. ES6 Refresher
+
+  - # 1. let and const
+
+    - var and let
+
+      - var is function scoped and let is block scoped
+      - var has Hoisted, or it can be used before declaration
+      - ```js
+        x = 5;
+
+        var x;
+        ```
+
+      - let is not hoisted, variable declared in let cant be used before
+      - const is same as let but cannot be reassigned
+      - `const a=20;` then we cannot do `a=10`
+      - const array and object can be modified though
+
+  - # 2. Arrow Function
+
+    - arrow functions are bind this where it created but normal functions are not bind this property
+    - syntax
+      ```js
+      ()=>1;
+      // is same as
+      function(){
+        return 1
+      }
+      // if there is only one parameter we can ignore the first bracket pair
+      number=>number*2;
+      //is same as
+      function (number){
+        return number*2;
+      }
+      ()=>({
+        name:1,
+        id:2
+      })
+      //is same as
+      function (){
+        return {
+          .....
+        }
+      }
+      // if there is other statement inside function block then we need to use curly brackets
+      ()=>{
+        let random=Math.random();
+        return random;
+      }
+      ```
+
+  - # 3. Class
+
+    - class example
+
+    ```js
+    class MyClass {
+      madeIn = "Bangladesh"; // this is new feature it will automatically add to constructor function
+      // a constructor function is method of class which get called when a new object is created using the class
+
+      constructor(color, passenger) {
+        this.color = color; // here this is referred to the object
+        this.passenger = passenger;
+      }
+      whatColor() {
+        console.log(this.color);
+      }
+    }
+
+    class MyEnhancedClass extends MyClass {
+      constructor(modelName, color, passenger) {
+        super(color, passenger); // must call super inside derivate class constructor, also need to supply super class constructor argument or else those will be empty
+        this.modelName = modelName;
+      }
+    }
+    ```
+
+  - # 4. Spread and Rest Operator
+    - Spread operator, ... before array or object name. it will make the array or object flat one level, like ...[1,2,3] will be 1,2,3 no array
+    - ie: array=[1,2,3] , newArray=[...array,4,5,6];// result will be newArray=[1,2,3,4,5,6];
+    - it will work same on object
+    - rest operator/parameter, The rest parameter syntax allows a function to accept an indefinite number of arguments as an array, providing a way to represent variadic functions in JavaScript.
+    - (number1,number2,...rest)// then any other argument send to this function other then number1 and number2 will be in rest array, rest is variable name, so this name can be any name, also number1 and number2 is not mandatory
+  - # 5. Destructing
+  - # 6. Array mapping
+
+- # 8. Asynchronous NodeJs Callback
+  - # 1. Asynchronous Pattern
+  - # 2. Callback Function
+  - # 3. callback hell
+  - # 4. using named function
+- # 9. Asynchronous NodeJs Promise
+  - # 1. Promises
+  - # 2. Replacing Callback
+  - # 3. Async-Await
