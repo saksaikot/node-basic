@@ -252,14 +252,115 @@
     - rest operator/parameter, The rest parameter syntax allows a function to accept an indefinite number of arguments as an array, providing a way to represent variadic functions in JavaScript.
     - (number1,number2,...rest)// then any other argument send to this function other then number1 and number2 will be in rest array, rest is variable name, so this name can be any name, also number1 and number2 is not mandatory
   - # 5. Destructing
+    - ie array=[1,2,3]; const [a,b,c]=array; or , const [a,b]=array; or const [a,,c]=array; or object={name:"rahat"}, const {name}=object
   - # 6. Array mapping
+    -
+    ```js
+    const numbers = [1, 2, 3, 4];
+    const squares = numbers.map((number) => number * number);
+    ```
 
 - # 8. Asynchronous NodeJs Callback
+
   - # 1. Asynchronous Pattern
+
+    - synchronous or blocking pattern, waits for statement to be finished
+    - asynchronous or non blocking pattern, does not wait for a statement to finished, we need it when we works with any io, ie: fetching data from db.
+
   - # 2. Callback Function
+
+    - sync approach:
+
+      ```js
+      const students=getStudents();
+      console.log(students);// here students is undefined
+      // mock function to get data from db
+      function getStudents(){
+        console.log("getting data from db");
+        return setTimeout(()=>{name:"rahim",id:1},500);
+      }
+
+      ```
+
+    - the problem with this approach is js uses non-blocking or async pattern by default.it will not wait for setTimeout function to be finished. thats why students will have a undefined value.
+    - to solve this problem we can use a callback function, when a function accept another function as parameter is call callback function. here inside setTimeout the function is used is a callback function.
+    - async approach:
+
+      ```js
+      getStudents((students)=>console.log(students);
+      function getStudents(callback){
+        setTimeout(()=>callback({name:"rahim",id:1}),500);
+
+      }
+
+      ```
+
   - # 3. callback hell
+
+    - this happens when we need to wait for some data, and based on that data if we need to again use any i/o intensive work or get data from a db then we need to use the callback again. this will become very complex in no time. this callback inside a callback approach is called callback hell. there can be many callback inside another callback.
+    - ie
+
+      ```js
+      getUser((userName) =>
+        getGitRepository(userName, (repository) =>
+          getRepositoryItems(repository)
+        )
+      );
+      ```
+
   - # 4. using named function
+
+    - ie: instead of using anonymous function we can use named function
+
+      ```js
+      getUser((userName,getGitRepository(repository,getRepositoryItems(repository)));
+
+
+      ```
+
 - # 9. Asynchronous NodeJs Promise
+
   - # 1. Promises
+
+    - real life promise
+      - we promise to do a job in future, until we do this job it is in not done state
+      - in future if the job is done then we say promise is completed or fulfilled
+      - if not completed we say did not keep the promise
+    - in js the promise object will have a in pending state until the promise return a complete or failed status
+    - if it complete then the state is resolved
+    - if it failed then the state is rejected
+    - example code:
+
+      ```js
+      const jobDone = new Promise(jobDonePromiseHandler);
+
+      function jobDonePromiseHandler(resolve, reject) {
+        setTimeout(() => resolve(1), 1000); //this will resolve in 1 seconds
+        setTimeout(() => reject(0), 2000); //this will reject in 2 seconds
+      }
+      jobDone
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error));
+      ```
+
   - # 2. Replacing Callback
+    - ```js
+      getUser(userName)
+        .then(getGitRepository)
+        .then(getRepositoryItems)
+        .catch(catchError);
+      ```
   - # 3. Async-Await
+
+    - async-await helps asynchronous code look like synchronous, that help for better understanding
+      ```js
+      async function getUserData() {
+        try {
+          const userDetails = await getUser(userId);
+          const repository = await getGitRepository(userDetails);
+          const repositoryItems = await getRepositoryItems(repository);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      ```
