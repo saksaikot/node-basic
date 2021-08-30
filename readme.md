@@ -364,3 +364,186 @@
         }
       }
       ```
+
+# Section E RESTful API and Express
+
+- # 01. What is RESTful service
+  - # 01.1 Client-server communication(HTTP)
+  - # 01.2 RESTful API
+  - # 01.3 Example of REST API
+- # 02. Building RESTful Service with Express
+  - # 02.1 Installing Express
+  - # 02.2 Creating server and Running with Nodemon
+  - # 02.3 Using Postman for GET Request
+  - # 02.4 Handling POST Request
+  - # 02.5 Creating a Module for managing data
+  - # 02.6 Route Parameters
+  - # 02.7 Handling PUT Request
+  - # 02.8 Handling DELETE Request
+- # 03. Express Router
+  - # 03.1 Using Named Function
+  - # 03.2 Refactoring the Routes
+  - # 03.3 Implementing Router
+- # 04. Express Middleware
+  - # 04.1 What is Middleware
+  - # 04.2 Writing Custom Middleware
+  - # 04.3 Request-Response Cycle
+  - # 04.4 Built-in Middleware
+  - # 04.5 Third Party Middleware
+
+# Section F Working with MongoDB and Express
+
+- # 1. Introduction to MongoDB
+  - # 1.1 Installing Mongodb(Windows)
+  - # 1.2 Running Mongodb Server
+  - # 1.3 Crud Operations - Create
+  - # 1.4 Crud Operation - Read
+  - # 1.5 Crud Operation - Update and Delete
+  - # 1.6 Mongodb Compass
+- # 2. Working with Mongoose
+  - # 2.1 Connecting to Mongodb
+  - # 2.2 Mongoose Schema
+  - # 2.3 Schema types
+  - # 2.4 Creating Model and Saving document
+  - # 2.5 Querying Documents
+  - # 2.6 Updating and deleting documents
+  - # 2.7 Built-in Validators
+  - # 2.8 Custom Validators
+  - # 2.9 Error messages
+- # 3. Combining MongoDB with Express
+  - # 3.1 Structuring Project
+  - # 3.2 Defining Model
+  - # 3.3 Connecting Mongodb
+  - # 3.4 Post Request - Create Document
+  - # 3.5 Get Request - Read Documents
+  - # 3.6 Put and delete - update and delete document
+- # 4. Authentication
+  - # 4.1 Creating user Model
+  - # 4.2 Registering User
+  - # 4.3 Hashing Password
+  - # 4.4 Authenticate
+  - # 4.5 Json Web Token
+  - # 4.6 Environment variables
+  - # 4.7 Storing Secret Key in environment variable
+  - # 4.8 Send JWT to new user
+- # 5. Authorization
+  - # 5.1 Request Header
+  - # 5.2 Protect Route using middleware
+  - # 5.3 Current user and logging out
+  - # 5.4 Role based Authorization
+- # 6. Burger Builder Project Back-end with Node
+  - # 6.1 Setting up project
+  - # 6.2 Creating user schema
+  - # 6.3 Validation with joi
+  - # 6.4 Registering new user
+  - # 6.5 Authenticating user
+  - # 6.6 Creating order schema
+  - # 6.7 New order and order list
+  - # 6.8. Testing our backend API
+- # 7. Burger Builder Project Customizing React App (Front-End)
+  - # 7.1 Project setup
+  - # 7.2 Authentication URLS
+  - # 7.3 Order URLS
+
+# Section G Deployment
+
+- # 1. Deployment Overview
+  - # 1.1 Deployment Overview
+- # 2. Hosting Mongodb Database
+  - # 2.1 Mongodb Atlas
+  - # 2.2 Connecting to hosted Database
+  - # 2.3 Network Access
+- # 3. Deploying Node Application
+  - # 3.1 Preparing our app
+  - # 3.2 Getting started with heroku
+  - # 3.3 Deploying to heroku
+  - # 3.4 Setting environment variables
+
+# Section H project - E-Commerce Site with Payment Gateway
+
+- # 1. Project intro and planning
+  - # 1.1 Assignment Overview
+  - # 1.2 Planning models
+  - # 1.3 Project setup (E-Com)
+- # 2. Node - Authentication and Authorization
+  - # 2.1 User model
+  - # 2.2 User router and signup
+  - # 2.3 User sign in
+  - # 2.4 Handle Rejected promise errors
+  - # 2.5 Authorization middleware
+- # 3. Node - Category and Product
+  - # 3.1 Category model and router
+  - # 3.2 Category routes
+  - # 3.3 Product model and router
+  - # 3.4 Create product with file upload
+  - # 3.5 Upload product with postman
+  - # 3.6 Filter Product by query string
+  - # 3.7 Product details and update
+  - # 3.8 Product update
+  - # 3.9 Filter products part-1
+  - # 3.10 Filter products part 2
+- # 4. Node - Product cart
+  - # 4.1 Refactoring codes
+  - # 4.2 Cart model
+  - # 4.3 Cart controller and router
+  - # 4.4 Cart item Crud
+  - # 4.5 Profile model and router
+- # 5. React - Routing and User Authentication
+  - # 5.1 Loading the React app
+  - # 5.2 Project setup
+  - # 5.3 Navigation menu
+  - # 5.4 Login and register user part 1
+  - # 5.5 Login and register user part 2
+  - # 5.6 Json web token
+  - # 5.7 Sign out User
+  - # 5.8 Private route
+  - # 5.9 Admin Dashboard and route
+- # 6. React - Category and product
+  - # 6.1 Create category
+  - # 6.2 Create product part 1
+  - # 6.3 Create product part 2
+  - # 6.4 Product details
+  - # 6.5 Show products in home page
+  - # 6.6 Filter products by category part 1
+  - # 6.7 Filter products by category part 2
+  - # 6.8 Filter products by category part 3
+  - # 6.9 Filter products by price
+- # 7. React - Product cart and checkout page
+  - # 7.1 Add product to cart
+  - # 7.2 Showing product in cart
+  - # 7.3 Increase, decrease and remove cart item
+  - # 7.4 Saving shipping address
+  - # 7.5 Checkout page
+- # 8. Payment Gateway (SSLCommerz)
+  - # 8.1 Sslcommerz sandbox
+  - # 8.2 Initiate payment session
+  - # 8.3 Initiate payment session in Node
+  - # 8.4 Node - payment controller part 1
+  - # 8.5 Node - payment controller part 2
+  - # 8.6 React - payment component
+  - # 8.7 node - instant payment notification
+  - # 8.8 Node - accept response in ipn url
+  - # 8.9 Node - order and payment model
+  - # 8.10 Node - ipn controller
+  - # 8.11 Node - Success message
+- # 9. Assignment
+  - # 9.1 Assignment overview
+
+# Section I Project (OAuth, File Upload)
+
+- # 1. Project setup
+  - # 1.1 OAuth, file upload project setup
+- # 2. Social login
+  - # 2.1 User model (OAuth, file upload)
+  - # 2.2 OAuth workflow
+  - # 2.3 Setting up router
+  - # 2.4 Setting up google account
+  - # 2.5 Passport google OAuth strategy
+  - # 2.6 Passport authenticate
+  - # 2.7 Redirect call back function
+  - # 2.8 Storing user in database
+  - # 2.9 Sending JWT as response
+- # 3. Uploading files with multer
+  - # 3.1 Multer configuration
+  - # 3.2 Upload function
+  - # 3.3 Testing with postman
