@@ -368,9 +368,46 @@
 # Section E RESTful API and Express
 
 - # 01. What is RESTful service
+
   - # 01.1 Client-server communication(HTTP)
+    - browser=>client/user
+    - server=> where the expected resource/ web site stored
+    - URL -> Uniform Resource locator, ie: www.google.com
   - # 01.2 RESTful API
+
+    - application 1 <--API--> application 2
+    - API -> Application Programming Interface
+    - Among many there is REST API
+    - REST -> Representational State Transfer
+    - RESTful api uses HTTP Request and HTTP Response
+    - RESTful concept
+      - Resource/Nouns
+        - Any information provided by rest api or endpoint
+        - uses URI to communicate
+          - ie
+          - example.com/books
+          - example.com/books/4
+          - example.com/authors
+      - Methods/Verb
+        - actions to be perform on resource
+        - perform CRUD (Create Read Update Delete) operation
+          - HTTP POST -> Create
+          - HTTP GET -> Read
+          - HTTP PUT/PATCH -> Update
+          - HTTP DELETE -> Delete
+      - Representation
+        - How to data is presented, or how client will get the data when perform an action to the api
+        - most used format is JSON and XML
+    - Crud Operation details
+      - GET https://example.com/books // this will get all book information in Json format
+      - GET https://example.com/books/1 // get book details of book id 1
+      - POST https://example.com/books {"bookName":"book name"} // will create new book
+      - PUT or PATCH https://example.com/books/1 {"bookName":"new book name"} // will update book name of id 1
+      - Delete https://example.com/books/1 // will delete book of id 1
+
   - # 01.3 Example of REST API
+    - rest api link and example https://jsonplaceholder.typicode.com/
+
 - # 02. Building RESTful Service with Express
   - # 02.1 Installing Express
   - # 02.2 Creating server and Running with Nodemon
