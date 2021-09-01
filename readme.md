@@ -408,15 +408,75 @@
   - # 01.3 Example of REST API
     - rest api link and example https://jsonplaceholder.typicode.com/
 
-- # 02. Building RESTful Service with Express
+- # F-02. Building RESTful Service with Express
+
   - # 02.1 Installing Express
+
+    - init npm : `npm init -y`
+    - use the basic http module
+
+      - create a basic http
+
+        ```js
+        const http = require("http");
+        const server = http.createServer(serverHandler);
+        function serverHandler(request, response) {
+          switch (request.url) {
+            case "/":
+              response.write("this is index page");
+              return response.end();
+            case "/home":
+              response.write("this is home page");
+              return response.end();
+
+            default:
+              response.write("404 page not found");
+
+              return response.end();
+          }
+        }
+
+        server.listen(3000, () => console.log("listening to port 3000...."));
+        ```
+
+      - it is not suitable to maintain http server using built-in http module
+      - instead we will use express package
+      - install the express package `npm i express`
+
   - # 02.2 Creating server and Running with Nodemon
+
+    - created server using express,
+    - first require express and put it in a constant
+    - then call the express and store it in app constant
+    - here is the sample code
+
+      ```js
+      const express = require("express");
+
+      const app = express();
+
+      app.get("/", (req, res) => {
+        res.send("hello from express");
+      });
+
+      app.get("/students", (req, res) => {
+        const students = ["rahim", "karim"];
+        res.send(JSON.stringify(students));
+      });
+      app.listen(3000, () => console.log("listening on port 3000"));
+      ```
+
+    - we need to install nodemon, nodemon is a global package, it watch for changes in file and if changed automatically restart the file.
+    - install nodemon globally `npm i nodemon -g`
+    - run app file using nodemon `nodemon app.js`
+
   - # 02.3 Using Postman for GET Request
   - # 02.4 Handling POST Request
   - # 02.5 Creating a Module for managing data
   - # 02.6 Route Parameters
   - # 02.7 Handling PUT Request
   - # 02.8 Handling DELETE Request
+
 - # 03. Express Router
   - # 03.1 Using Named Function
   - # 03.2 Refactoring the Routes
