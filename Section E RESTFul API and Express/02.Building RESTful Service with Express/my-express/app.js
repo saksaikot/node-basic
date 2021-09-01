@@ -12,6 +12,13 @@ app.get("/api/students", async (req, res) => {
   const students = await db.getStudents();
   res.send(JSON.stringify(students));
 });
+app.get("/api/students/:id", async (req, res) => {
+  const id = +req.params.id;
+  const students = await db.getStudents();
+  const student = students.find((student) => student.id === id);
+  if (!student) res.status(404).send("Student not found");
+  res.send(student);
+});
 
 app.post("/api/students", async (req, res) => {
   const studentName = req.body.name;

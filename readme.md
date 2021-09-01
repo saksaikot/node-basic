@@ -503,6 +503,12 @@
     - create two promises to handel read and write, getStudent and insertStudent
     - imported new db module in app.js and used new function in async-await syntax
   - # 02.6 Route Parameters
+    - we used hard coded uri, using route parameter we can use dynamic uri
+    - syntax `uri/:variable-name` ie: for getting a id from uri we can use `/api/students/:id`
+    - this id is accessed by `req.params.id`
+    - then we simply used the find method of array to find the id and then send the student data;
+    - we converted id string to integer
+    - if student not found we send a status code of 404, ie: `res.status(404).send("any message")`
   - # 02.7 Handling PUT Request
   - # 02.8 Handling DELETE Request
 
