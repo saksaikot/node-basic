@@ -485,6 +485,18 @@
       ```
 
   - # 02.4 Handling POST Request
+
+    - used `app.post("/api/students",()=>{})` method to receive post request, post request on same uri is used to create new resource, in this case will create new student object
+    - to get the sended data to this uri we used a middleware express.json(), `app.use(express.json())`, after this we can receive data in `req.body`
+    - we first loaded the db.json, and inserted the new student object in db by `db.students.push(student)`
+    - then we save the db object as json using
+
+      ```js
+      fs.writeFile("filename", JSON.stringify(db), (error) => {
+        // now the file is saved, we need to return the created student data using `res.send()`
+      });
+      ```
+
   - # 02.5 Creating a Module for managing data
   - # 02.6 Route Parameters
   - # 02.7 Handling PUT Request
