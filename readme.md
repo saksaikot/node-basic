@@ -471,6 +471,19 @@
     - run app file using nodemon `nodemon app.js`
 
   - # 02.3 Using Postman for GET Request
+
+    - download postman and install it,postman help to send http request,like post,patch,delete. In browser we can do the same but we need to setup custom page/script to send different http request. But postman have all features.
+    - used mocked db.json file to replace db
+    - read the db.json file using fs module
+    - code
+
+      ```js
+      fs.readFile("./db.json", "utf-8", (err, data) => {
+        const students = JSON.parse(data).students;
+        res.send(JSON.stringify(students));
+      });
+      ```
+
   - # 02.4 Handling POST Request
   - # 02.5 Creating a Module for managing data
   - # 02.6 Route Parameters
