@@ -498,6 +498,10 @@
       ```
 
   - # 02.5 Creating a Module for managing data
+    - db.json is formatted as only array of student object
+    - created new db module to handle db.json file read and write
+    - create two promises to handel read and write, getStudent and insertStudent
+    - imported new db module in app.js and used new function in async-await syntax
   - # 02.6 Route Parameters
   - # 02.7 Handling PUT Request
   - # 02.8 Handling DELETE Request

@@ -1,5 +1,5 @@
 const express = require("express");
-const fs = require("fs");
+const db = require("./db");
 
 const app = express();
 app.use(express.json());
@@ -8,23 +8,15 @@ app.get("/", (req, res) => {
   res.send("hello from express");
 });
 
-app.get("/api/students", (req, res) => {
-  fs.readFile("./db.json", "utf-8", (err, data) => {
-    const students = JSON.parse(data).students;
-    res.send(JSON.stringify(students));
-  });
+app.get("/api/students", async (req, res) => {
+  const students = await db.getStudents();
+  res.send(JSON.stringify(students));
 });
 
-app.post("/api/students", (req, res) => {
-  fs.readFile("./db.json", "utf-8", (err, data) => {
-    const db = JSON.parse(data);
-    const name = req.body.name;
-    console.log("name", name);
-    const student = { name, id: db.students.length + 1 };
-    db.students.push(student);
-    fs.writeFile("./db.json", JSON.stringify(db), (error) => {
-      res.send(student);
-    });
-  });
+app.post("/api/students", async (req, res) => {
+  const studentName = req.body.name;
+  const result = await db.insertStudent(studentName);
+  res.send(result);
 });
-app.listen(3000, () => console.log("listening on port 3000"));
+const port = 3000;
+app.listen(port, () => console.log(`listening on port ${3000}`));
