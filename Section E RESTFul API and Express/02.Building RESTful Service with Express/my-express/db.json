@@ -1,1 +1,1 @@
-[{"name":"new name4","id":1},{"id":2,"name":"rahim"},{"name":"saikot","id":3},{"name":"sultan","id":4},{"name":"sultan khan","id":5},{"name":"sultan khan again","id":6}]
+[{"name":"saikot","id":1,"deleted":1},{"name":"sultan","id":2,"deleted":1},{"name":"sultan khan","id":3,"deleted":1},{"name":"sultan khan again","id":4,"deleted":1}]

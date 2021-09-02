@@ -514,6 +514,9 @@
     - created new function updateStudent
     - updated the index if the given id is there
   - # 02.8 Handling DELETE Request
+    - used app.delete to handle delete request
+    - created deleteStudent function
+    - to keep the id valid, no element has been deleted just added deleted flag
 
 - # 03. Express Router
   - # 03.1 Using Named Function

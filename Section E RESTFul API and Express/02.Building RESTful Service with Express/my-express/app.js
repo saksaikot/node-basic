@@ -32,6 +32,17 @@ app.put("/api/students/:id", async (req, res) => {
   res.send(insertResult);
 });
 
+app.delete("/api/students/:id", async (req, res) => {
+  const id = +req.params.id;
+  //const name = req.body.name;
+
+  const students = await db.getStudents();
+  const student = students.find((student) => student.id === id);
+  if (!student) return res.status(404).send("Student not found");
+  console.log("student from delete student", student);
+  const deleteResult = await db.deleteStudent(student);
+  res.send(deleteResult);
+});
 app.post("/api/students", async (req, res) => {
   const studentName = req.body.name;
   const result = await db.insertStudent(studentName);
