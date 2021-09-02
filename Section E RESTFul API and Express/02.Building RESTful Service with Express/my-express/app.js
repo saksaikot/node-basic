@@ -1,52 +1,12 @@
 const express = require("express");
 const db = require("./db");
-
+const studentsRoutes = require("./Routes/students");
 const app = express();
 app.use(express.json());
-
+app.use("/api/students", studentsRoutes);
 app.get("/", (req, res) => {
   res.send("hello from express");
 });
 
-app.get("/api/students", async (req, res) => {
-  const students = await db.getStudents();
-  res.send(JSON.stringify(students));
-});
-app.get("/api/students/:id", async (req, res) => {
-  const id = +req.params.id;
-  const students = await db.getStudents();
-  const student = students.find((student) => student.id === id);
-  if (!student) res.status(404).send("Student not found");
-  res.send(student);
-});
-
-app.put("/api/students/:id", async (req, res) => {
-  const id = +req.params.id;
-  const name = req.body.name;
-
-  const students = await db.getStudents();
-  const student = students.find((student) => student.id === id);
-  if (!student) res.status(404).send("Student not found");
-
-  const insertResult = await db.updateStudent({ name, id });
-  res.send(insertResult);
-});
-
-app.delete("/api/students/:id", async (req, res) => {
-  const id = +req.params.id;
-  //const name = req.body.name;
-
-  const students = await db.getStudents();
-  const student = students.find((student) => student.id === id);
-  if (!student) return res.status(404).send("Student not found");
-  console.log("student from delete student", student);
-  const deleteResult = await db.deleteStudent(student);
-  res.send(deleteResult);
-});
-app.post("/api/students", async (req, res) => {
-  const studentName = req.body.name;
-  const result = await db.insertStudent(studentName);
-  res.send(result);
-});
 const port = 3000;
 app.listen(port, () => console.log(`listening on port ${3000}`));

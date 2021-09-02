@@ -23,7 +23,7 @@ const writeStudents = (students) => {
 
 const insertStudent = (studentName) => {
   return new Promise(async (resolve, reject) => {
-    const students = await getStudents();
+    const students = await getStudents(false);
     const student = { name: studentName, id: students.length + 1 };
     students.push(student);
     await writeStudents(students);

@@ -520,8 +520,18 @@
 
 - # 03. Express Router
   - # 03.1 Using Named Function
+    - all callback function of are replaced with named function then moved them to separate file under controllers folder
+    - them exported them
   - # 03.2 Refactoring the Routes
+    - the routes are grouped using `app.route`
+    - then moved the route to separate file under Routes
+    - imported students from controllers and provided the named function accordingly
+    - then used Router from express `Router=express.Router()` and replace app by Router
+    - then exported the Router object
   - # 03.3 Implementing Router
+    - in app.js imported the Student router file.
+    - then used `app.use("/api/students",studentsRoutes)` to replace old students router
+    - in student routes file we change the uri to `/api/students` to `/` because when we used the app.use we already specified the uri for that resource, if we still keep the `/api/students` in `Routes/students.js` file then our endpoint will become `/api/students/api/students` which we don't want
 - # 04. Express Middleware
   - # 04.1 What is Middleware
   - # 04.2 Writing Custom Middleware
