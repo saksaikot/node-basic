@@ -510,6 +510,9 @@
     - we converted id string to integer
     - if student not found we send a status code of 404, ie: `res.status(404).send("any message")`
   - # 02.7 Handling PUT Request
+    - used app.put to handle put request which is used to update a resource
+    - created new function updateStudent
+    - updated the index if the given id is there
   - # 02.8 Handling DELETE Request
 
 - # 03. Express Router

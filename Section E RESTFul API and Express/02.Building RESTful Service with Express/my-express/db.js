@@ -19,7 +19,21 @@ const insertStudent = (studentName) => {
   });
 };
 
+const updateStudent = (student) => {
+  return new Promise(async (resolve, reject) => {
+    const students = await getStudents();
+    // const student = { name: studentName, id: students.length + 1 };
+    // students.push(student);
+    const findIndex = students.findIndex((s) => s.id === student.id);
+    students[findIndex] = student;
+    fs.writeFile("./db.json", JSON.stringify(students), (error) => {
+      resolve(student);
+    });
+  });
+};
+
 module.exports = {
   getStudents,
   insertStudent,
+  updateStudent,
 };
