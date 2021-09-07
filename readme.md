@@ -564,6 +564,29 @@
     - after completing request-response cycle it all not process any middleware after response.send
 
   - # 04.4 Built-in Middleware
+
+    - `express.urlencoded({extended:true})` to handle data passed in url ?data1=hello&data2=world
+    - to send this type of data in postman we need to use the `x-www-form-urlencoded` section while sending data instead of json
+    - to use static file we use `express.static("root-folder-name");`
+    - ie :`express.static("public"); ` our static files will be served from public folder
+
+      - example
+
+        ```js
+        app.use(express.static("public"));
+        app.use("/static", express.static("public"));
+        ```
+
+      - the folder is relative to app file
+      - if the folder is in other location is better to use absolute location
+
+        - example
+
+          ```js
+          const path = require("path");
+          app.use("/static", express.static(path.join(__dirname, "public")));
+          ```
+
   - # 04.5 Third Party Middleware
 
 # Section F Working with MongoDB and Express
