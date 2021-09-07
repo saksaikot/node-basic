@@ -600,12 +600,29 @@
 # Section F Working with MongoDB and Express
 
 - # 1. Introduction to MongoDB
+
   - # 1.1 Installing Mongodb(Windows)
+
+    - mongo is a no-sql database, it store data as json object
+    - we used db.json file to store our data with the help of db.js file
+    - in real life we keep our data in a database
+    - with node we will use mongo db
+    - each data in mongo db is called document
+    - is document have a unique id and can have array with object or object with array, as wel as nested object
+    - same type of document is called collection
+    - we need to download to mongo db from its website mongodb.com
+    - from Software->community-server ==> free and open source
+    - enterprise server will be used when we use it under a company or the paid version of this server
+    - now download the community server for windows as msi
+    - select complete , uncheck install mongodb-compass
+    - and leave everything default and install it
+
   - # 1.2 Running Mongodb Server
   - # 1.3 Crud Operations - Create
   - # 1.4 Crud Operation - Read
   - # 1.5 Crud Operation - Update and Delete
   - # 1.6 Mongodb Compass
+
 - # 2. Working with Mongoose
   - # 2.1 Connecting to Mongodb
   - # 2.2 Mongoose Schema
