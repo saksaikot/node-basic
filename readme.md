@@ -553,7 +553,16 @@
     - middlewares are called in the serial it written - top to bottom
 
   - # 04.2 Writing Custom Middleware
+    - done in previous section
   - # 04.3 Request-Response Cycle
+
+    - the request object is when a client send a request
+    - the response object is server is sending the data to client
+    - express use almost everything as middleware
+    - a middleware have the access of request and response object and a callback next function that we use to pass control to next middleware in the pipeline
+    - then when we send the response it complete the request-response cycle
+    - after completing request-response cycle it all not process any middleware after response.send
+
   - # 04.4 Built-in Middleware
   - # 04.5 Third Party Middleware
 
