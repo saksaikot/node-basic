@@ -533,7 +533,25 @@
     - then used `app.use("/api/students",studentsRoutes)` to replace old students router
     - in student routes file we change the uri to `/api/students` to `/` because when we used the app.use we already specified the uri for that resource, if we still keep the `/api/students` in `Routes/students.js` file then our endpoint will become `/api/students/api/students` which we don't want
 - # 04. Express Middleware
+
   - # 04.1 What is Middleware
+
+    - middleware is a function that execute before sending response to client,
+    - we already used three middlewares,`app.use(express.json())`, `app.use("",studentRoutes)` and `app.get("/",(req.res)=>res.send("hello world"))`;
+    - these are built-in middlewares, we can make our own middleware, middlewares are used to apply restriction to our endpoint, to receive json object etc,
+    - middleware take 3 parameters, `request,response and next ` we already know request and response, the next is callback, we need to call next to say we want to continue the pipeline of middlewares,
+    - after using res.send there will be no next call, the response will be send
+    - example
+
+      ```js
+      app.use((req, res, next) => {
+        req.body.app = "Node"; // add this property to all request
+        next(); //then call next middleware
+      });
+      ```
+
+    - middlewares are called in the serial it written - top to bottom
+
   - # 04.2 Writing Custom Middleware
   - # 04.3 Request-Response Cycle
   - # 04.4 Built-in Middleware
