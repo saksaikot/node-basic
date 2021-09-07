@@ -588,6 +588,14 @@
           ```
 
   - # 04.5 Third Party Middleware
+    - those middleware are not from express, they are written by others
+    - we will use a middleware call morgan
+    - it show request data in console log
+    - installation
+      - `npm i morgan`
+      - `const morgan = require("morgan")`
+      - app.use(morgan('dev'))// there is dev,tiny,combined etc
+        - this will console.log the request type,requested uri, respond code, response time
 
 # Section F Working with MongoDB and Express
 
