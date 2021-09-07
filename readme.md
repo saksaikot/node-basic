@@ -618,6 +618,18 @@
     - and leave everything default and install it
 
   - # 1.2 Running Mongodb Server
+    - at this point mongoDB server will try to run as a windows service, but the default setup store db data to`c:\data\db` thats why we need to create a folder call `data` in c: directory, then inside data folder we need to create a folder named db
+    - now we can restart mongoDB service from windows service manager or from task manager
+    - default mongodb listen to 127.0.0.1:27017
+    - add mongo db to environment path
+      - open advanced system setting
+      - under `advanced` tab open `Environment variables` button
+      - now edit path from system variable
+      - then new and paste the copied monogodb path , my path is `C:\Program Files\MongoDB\Server\5.0\bin`
+      - now restart terminal or cmd window and type mongo
+      - if you get a mongo console then its working
+      - otherwise you need to check if mongoDB service is running or not, the path is added to system environment variable
+      - you can also restart your pc if above is ok but still mongo console is not working
   - # 1.3 Crud Operations - Create
   - # 1.4 Crud Operation - Read
   - # 1.5 Crud Operation - Update and Delete
