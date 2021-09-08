@@ -630,7 +630,23 @@
       - if you get a mongo console then its working
       - otherwise you need to check if mongoDB service is running or not, the path is added to system environment variable
       - you can also restart your pc if above is ok but still mongo console is not working
+      - you can manually run mongodb server by running mongod command, and leave it open until you finished your work
   - # 1.3 Crud Operations - Create
+
+    - in terminal or cmd type mongo and enter in mongo console
+      - `use my-db` will select my-db if my-db exist or will create and then select my-db
+      - `db.collection` will create the collection or exist will use that collection and then select that collection
+      - db.collection have many methods, among them `insertOne` and `insertMany`.
+      - `insertOne` will use when we want to insert only one document.
+      - `insertMany` will use when we want to insert more than one document, and must be in array
+      - the json data can be js object, mongo then will convert to json object
+      - while inserting data mongo will automatically insert a unique id for that document
+      - `db.collection.students.insertOne({name:"saikot",age:20,hobbies:["music","gardening"]})`
+      - `insertMany([student1,student2])` ....
+      - `db.collection.students.find()` will give all students document
+      - `show dbs` will show all database list
+      - again to switch a database we use `use db-name`
+
   - # 1.4 Crud Operation - Read
   - # 1.5 Crud Operation - Update and Delete
   - # 1.6 Mongodb Compass
