@@ -659,6 +659,16 @@
       - `find({name:"saikot",age:{$gt:18}})` this will works as `and`
       - `find({$or:[{name:"saikot"},{age:{$gt:18}}])` will works as `or` we need to use `or` keyword and pass the or object as array
   - # 1.5 Crud Operation - Update and Delete
+    - when we use $ sign is call operator
+    - db.collection.students.updateOne({name:"saikot"},{$set:{age:21}})
+      - this will return an object of the operation
+      - `{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }`
+      - updateOne will update only one document
+    - we will use `.updateMany()` if we want to update more than one documents
+    - `replaceOne` and `replaceMany` will replace whole document, not just update provided object
+    - delete
+      - `.deleteOne({filter})`,`deleteMany({filter})` will delete document/(s) that match filter
+    - [Official doc for crud](https://docs.mongodb.com/manual/crud/)
   - # 1.6 Mongodb Compass
 
 - # 2. Working with Mongoose
