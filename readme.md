@@ -648,6 +648,16 @@
       - again to switch a database we use `use db-name`
 
   - # 1.4 Crud Operation - Read
+    - `db.collection.students.find()` to show all documents of students collection
+    - `.find().pretty()` will show json with prettier
+    - `.find({name:"saikot"})` will show only documents exact matched `name:"saikot"` property and value
+    - `.find().limit(1)` will limit the result to limit
+    - using greater than and less than we will pass an object rather than exact value with `$keyword:value`
+      - keyword: lt->less than, gt->greater than, gte and lte , e is or equal
+      - `{age: {$gte:18}}` here this will find all document with age greater than or equal 18
+    - multiple key:value find
+      - `find({name:"saikot",age:{$gt:18}})` this will works as `and`
+      - `find({$or:[{name:"saikot"},{age:{$gt:18}}])` will works as `or` we need to use `or` keyword and pass the or object as array
   - # 1.5 Crud Operation - Update and Delete
   - # 1.6 Mongodb Compass
 
