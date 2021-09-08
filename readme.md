@@ -701,6 +701,58 @@
       - since it return a promise we can chain it with a then and catch block
 
   - # 2.2 Mongoose Schema
+
+    - see documentation [mongooseJs.com](https://mongoosejs.com)
+    - schema
+
+      - define the document structure of a collection
+      - mongoose start or work with schema
+      - each schema mapped to a mongoDB collection
+      - mongoose.Schema() is a class
+      - Schema accept an object of property types
+
+        - for example
+
+          ```js
+          const testSchema = mongoose.Schema({
+            title: String, // String is shorthand for {type: String}
+            author: { type: String },
+            body: String,
+            comments: [{ body: String, date: Date }],
+            date: { type: Date, default: Date.now },
+            hidden: Boolean,
+            meta: {
+              votes: Number,
+            },
+          });
+          ```
+
+          - {keyName:keyType}
+          - there are String,Number,Boolean,Date
+          - we can also do like: body:{type:String,default:"this is great content"}
+          - so we can use an object to describe the type and also the default value
+          - another example
+
+            ```js
+            const testSchema = mongoose.Schema({
+              firstName: String,
+              lastName: String,
+              dob: Date,
+              entryDate: { type: Date, default: Date.now },
+              passed: Boolean,
+              hobbies: [String],
+              parents: {
+                father: String,
+                mother: String,
+              },
+              subject: [
+                { name: String, marks: { type: Number, min: 0, max: 100 } },
+              ],
+            });
+            ```
+
+          - when the property has an object with type property then it treat it as type, else it treat it as structure
+
   - # 2.3 Schema types
   - # 2.4 Creating Model and Saving document
   - # 2.5 Querying Documents
