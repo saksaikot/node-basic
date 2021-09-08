@@ -670,6 +670,13 @@
       - `.deleteOne({filter})`,`deleteMany({filter})` will delete document/(s) that match filter
     - [Official doc for crud](https://docs.mongodb.com/manual/crud/)
   - # 1.6 Mongodb Compass
+    - download mongodb compass from mongodb website
+    - [go here](https://www.mongodb.com/try/download/compass) and download stable zip version for windows
+    - extract the zip file and open mongodbCompass.exe file
+    - on new connection page there will be an option `fill in connection fields individually` click there to open individual field
+    - from default installation of mongodb we know that server location is 127.0.0.1 or localhost and the port 27017
+    - these default fields will there already so we just need to click on connect to connect with mongodb server
+    - from the app we can perform all crud operation we did on mongo console
 
 - # 2. Working with Mongoose
   - # 2.1 Connecting to Mongodb
