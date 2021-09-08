@@ -679,7 +679,27 @@
     - from the app we can perform all crud operation we did on mongo console
 
 - # 2. Working with Mongoose
+
   - # 2.1 Connecting to Mongodb
+
+    - in an empty mondo folder init npm and install mongoose
+
+      - `npm init -y` `npm i mongoose`
+      - simple use of mongoose
+
+        ```js
+        const mongoose = require("mongoose");
+
+        mongoose
+          .connect("mongodb://localhost:27017")
+          .then(() => console.log("connected to mongodb"))
+          .catch((error) => console.error("couldn't connect to mongodb"));
+        ```
+
+      - so we require and put in in mongoose const
+      - then we call mongoose connect method and pass mongodb uri
+      - since it return a promise we can chain it with a then and catch block
+
   - # 2.2 Mongoose Schema
   - # 2.3 Schema types
   - # 2.4 Creating Model and Saving document
@@ -688,6 +708,7 @@
   - # 2.7 Built-in Validators
   - # 2.8 Custom Validators
   - # 2.9 Error messages
+
 - # 3. Combining MongoDB with Express
   - # 3.1 Structuring Project
   - # 3.2 Defining Model
