@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
+const { of } = require("await-of");
 
 mongoose
   .connect("mongodb://localhost:27017")
@@ -22,7 +23,7 @@ const studentSchema = Schema({
 
 const Student = model("Student", studentSchema);
 
-const newStudent = new Student({
+const newStudentObject = {
   firstName: "Karim",
   lastName: "Sarkar",
   dob: new Date("21 April 1996"),
@@ -36,6 +37,25 @@ const newStudent = new Student({
     { name: "Math", marks: 79 },
     { name: "English", marks: 84 },
   ],
-});
+};
 
-newStudent.save().then((data) => console.log(data));
+// create
+const createStudent = async (student) => {
+  const newStudent = new Student(student);
+  const [saved, error] = await of(newStudent.save());
+  if (error) return console.log(error);
+  console.log("data saved", saved);
+};
+// createStudent(newStudentObject);
+
+// R-Read
+
+const readStudent = async () => {
+  const [students, error] = await of(
+    Student.find().select("firstName lastName").limit(4).sort({ firstName: -1 })
+  );
+  if (error) return console.log(error);
+  console.log("result", students);
+};
+
+readStudent();
