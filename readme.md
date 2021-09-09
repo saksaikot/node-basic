@@ -760,6 +760,37 @@
       - Mixed,ObjectId,Decimal128 uses Schema.Types.Mixed/Objectid/Decimal128
     - if we need a property named `type` we need to define that property with configuration object, ie: `{type:{type:String}}`
   - # 2.4 Creating Model and Saving document
+
+    - using the schema file we can make model of a collection
+    - `Student=model("Student",studentSchema)`
+    - model returns a class, then we can use this class to make an object
+    - ie:
+
+      ```js
+      const Student = model("Student", studentSchema);
+
+      const newStudent = new Student({
+        firstName: "Karim",
+        lastName: "Sarkar",
+        dob: new Date("21 April 1996"),
+        passed: true,
+        hobbies: ["traveling"],
+        parents: {
+          father: "A",
+          mother: "B",
+        },
+        subject: [
+          { name: "Math", marks: 79 },
+          { name: "English", marks: 84 },
+        ],
+      });
+
+      newStudent.save().then((data) => console.log(data));
+      ```
+
+    - then we can call it save method. the save method return a promise, we can use then catch chain or use async-await syntax
+    -
+
   - # 2.5 Querying Documents
   - # 2.6 Updating and deleting documents
   - # 2.7 Built-in Validators
