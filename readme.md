@@ -754,6 +754,11 @@
           - when the property has an object with type property then it treat it as type, else it treat it as structure
 
   - # 2.3 Schema types
+    - schema types is configuration object of individual property
+    - the types are
+      - String, Number, Date, Buffer(binary data), Boolean, Mixed(all types are mixed), ObjectId, Array, Decimal128(128 bit decimal), Map(map structure), Schema
+      - Mixed,ObjectId,Decimal128 uses Schema.Types.Mixed/Objectid/Decimal128
+    - if we need a property named `type` we need to define that property with configuration object, ie: `{type:{type:String}}`
   - # 2.4 Creating Model and Saving document
   - # 2.5 Querying Documents
   - # 2.6 Updating and deleting documents
