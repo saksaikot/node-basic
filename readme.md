@@ -1150,7 +1150,19 @@
         if (findError) return errorBadRequest(res, findError);
         const [saveResult, saveError] = await of(new User(req.body).save());
         if (saveError) return errorBadRequest(res, saveError);
-        res.send(saveResult);
+        const { email, name } = saveResult;
+
+        res.send({ email, name });
+      };
+      ```
+
+    - fixed helper controller,
+
+      ```js
+      const errorBadRequest = (res, error) => {
+        const { errors } = error;
+        if (!errors) return res.status(400).send(error.message);
+        //...
       };
       ```
 

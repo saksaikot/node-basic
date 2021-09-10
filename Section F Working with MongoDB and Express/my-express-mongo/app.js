@@ -10,6 +10,7 @@ mongoose
   .catch((e) => console.error("couldn't connect to mongodb"));
 const app = express();
 app.use(express.json());
+app.use(morgan("dev"));
 
 app.use("/api/students", studentsRoutes);
 app.use("/api/users", usersRoutes);

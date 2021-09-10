@@ -8,7 +8,9 @@ const create = async (req, res) => {
   if (findError) return errorBadRequest(res, findError);
   const [saveResult, saveError] = await of(new User(req.body).save());
   if (saveError) return errorBadRequest(res, saveError);
-  res.send(saveResult);
+  const { email, name } = saveResult;
+
+  res.send({ email, name });
 };
 module.exports = {
   // list,
