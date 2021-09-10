@@ -2,16 +2,8 @@
 const { Student } = require("../models/Student");
 const { of } = require("await-of");
 
-const errorBadRequest = (res, { errors }) => {
-  const message = [];
-  for (const errorKey in errors) {
-    message.push(errors[errorKey].message);
-  }
-  return res.status(400).send(message);
-};
-const errorNotFound = (res) => {
-  return res.status(404).send("Resource not found!");
-};
+const { errorBadRequest, errorNotFound } = require("./helper");
+
 const remove = async (req, res) => {
   const [deleteResult, deleteError] = await of(
     Student.findByIdAndDelete(req.params.id)

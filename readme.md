@@ -1076,14 +1076,91 @@
       ```
 
 - # 4. Authentication
+
   - # 4.1 Creating user Model
+
+    - authentication: can login
+    - authorization : have access to content/data
+
+    - code
+
+      ```js
+      const userSchema = Schema({
+        name: {
+          type: String,
+          required: true,
+          minlength: 5,
+          maxlength: 100,
+        },
+        email: {
+          type: String,
+          require: true,
+          minlength: 5,
+          maxlength: 255,
+          unique: true,
+        },
+        password: {
+          type: String,
+          required: true,
+          minlength: 5,
+          maxlength: 1024,
+        },
+      });
+
+      exports.User = model("User", userSchema);
+      ```
+
   - # 4.2 Registering User
+
+    - model
+
+      ```js
+      const userSchema = Schema({
+        name: {
+          type: String,
+          required: true,
+          minlength: 5,
+          maxlength: 100,
+        },
+        email: {
+          type: String,
+          require: true,
+          minlength: 5,
+          maxlength: 255,
+          unique: true,
+        },
+        password: {
+          type: String,
+          required: true,
+          minlength: 5,
+          maxlength: 1024,
+        },
+      });
+
+      exports.User = model("User", userSchema);
+      ```
+
+    - controller - create
+
+      ```js
+      const create = async (req, res) => {
+        const [findResult, findError] = await of(
+          User.findOne({ email: req.body.email })
+        );
+        if (findError) return errorBadRequest(res, findError);
+        const [saveResult, saveError] = await of(new User(req.body).save());
+        if (saveError) return errorBadRequest(res, saveError);
+        res.send(saveResult);
+      };
+      ```
+
   - # 4.3 Hashing Password
   - # 4.4 Authenticate
   - # 4.5 Json Web Token
   - # 4.6 Environment variables
   - # 4.7 Storing Secret Key in environment variable
   - # 4.8 Send JWT to new user
+
 - # 5. Authorization
   - # 5.1 Request Header
   - # 5.2 Protect Route using middleware
