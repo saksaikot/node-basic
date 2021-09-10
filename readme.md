@@ -854,8 +854,90 @@
     ```
 
 - # 2.7 Built-in Validators
+
+  - example
+
+    ```js
+    const breakfastSchema = new Schema({
+      eggs: {
+        type: Number,
+        min: [6, "Too few eggs"],
+        max: 12,
+      },
+      bacon: {
+        type: Number,
+        required: [true, "Why no bacon?"],
+      },
+      drink: {
+        type: String,
+        enum: ["Coffee", "Tea"],
+        required: function () {
+          return this.bacon > 3;
+        },
+      },
+    });
+
+    const Breakfast = db.model("Breakfast", breakfastSchema);
+
+    const badBreakfast = new Breakfast({
+      eggs: 2,
+      bacon: 0,
+      drink: "Milk",
+    });
+    let error = badBreakfast.validateSync();
+    assert.equal(error.errors["eggs"].message, "Too few eggs");
+    ```
+
 - # 2.8 Custom Validators
+- custom error
+
+  ```js
+  const breakfastSchema = new Schema({
+    eggs: {
+      type: Number,
+      min: [6, "Must be at least 6, got {VALUE}"],
+      max: 12,
+    },
+    drink: {
+      type: String,
+      enum: {
+        values: ["Coffee", "Tea"],
+        message: "{VALUE} is not supported",
+      },
+    },
+    dob: {
+      type: Date,
+      validator: {
+        validate: (value) => value > new Date("1 January 1950"),
+        message: "you are too old for this program",
+      },
+    },
+  });
+  const Breakfast = db.model("Breakfast", breakfastSchema);
+
+  const badBreakfast = new Breakfast({
+    eggs: 2,
+    drink: "Milk",
+  });
+  let error = badBreakfast.validateSync();
+  assert.equal(error.errors["eggs"].message, "Must be at least 6, got 2");
+  assert.equal(error.errors["drink"].message, "Milk is not supported");
+  ```
+
 - # 2.9 Error messages
+
+  - example
+
+    ```js
+    //single line
+    console.log(error.message);
+
+    // multiple validation errors or error have errors property
+    // error.errors, the error key is is the key defined in the schema
+    for (const errorKey in error.errors) {
+      console.log(error.errors[errorKey], error.errors[errorKey].message);
+    }
+    ```
 
 - # 3. Combining MongoDB with Express
   - # 3.1 Structuring Project
