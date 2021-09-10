@@ -9,6 +9,9 @@ const errorBadRequest = (res, { errors }) => {
   }
   return res.status(400).send(message);
 };
+const errorNotFound = (res) => {
+  return res.status(404).send("Resource not found!");
+};
 const remove = async (req, res) => {
   const id = +req.params.id;
   //const name = req.body.name;
@@ -38,16 +41,16 @@ const update = async (req, res) => {
   // const insertResult = await db.updateStudent({ name, id });
   // res.send(insertResult);
 };
-const item = async (req, res) => {
-  const id = +req.params.id;
-  // const students = await db.getStudents();
-  // const student = students.find((student) => student.id === id);
-  // if (!student) res.status(404).send("Student not found");
-  // res.send(student);
-};
 const list = async (req, res) => {
-  // const students = await db.getStudents();
-  // res.send(JSON.stringify(students));
+  const [students] = await of(Student.find().sort({ name: 1 }));
+  res.send(students);
+};
+const item = async (req, res) => {
+  const [findStudent, findStudentError] = await of(
+    Student.findById(req.params.id)
+  );
+  if (findStudentError || !findStudent) return errorNotFound(res);
+  res.send(findStudent);
 };
 
 module.exports = {

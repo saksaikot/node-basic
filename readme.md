@@ -1026,6 +1026,29 @@
       ```
 
   - # 3.5 Get Request - Read Documents
+
+        - example code
+
+          ```js
+          const errorNotFound = (res) => {
+            return res.status(404).send("Resource not found!");
+          };
+
+          const list = async (req, res) => {
+
+            const [students] = await of(Student.find().sort({ name: 1 }));
+            res.send(students);
+            };
+            const item = async (req, res) => {
+            const [findStudent, findStudentError] = await of(
+            Student.findById(req.params.id)
+            );
+            if (findStudentError || !findStudent) return errorNotFound(res);
+            res.send(findStudent);
+          };
+
+          ```
+
   - # 3.6 Put and delete - update and delete document
 
 - # 4. Authentication
