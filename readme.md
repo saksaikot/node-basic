@@ -792,10 +792,70 @@
     -
 
   - # 2.5 Querying Documents
-  - # 2.6 Updating and deleting documents
-  - # 2.7 Built-in Validators
-  - # 2.8 Custom Validators
-  - # 2.9 Error messages
+
+    - create example,
+
+      ```js
+      const newStudent = new Student(studentObject);
+      const [saved, error] = await of(newStudent.save());
+      ```
+
+    - read example, will use find method, will work all mongo console example
+    - limit will limit the result, sort will sort the document 1 is ascending ,-1 descending
+
+      ```js
+      const [students, error] = await of(
+        Student.find()
+          .select("firstName lastName")
+          .limit(4)
+          .sort({ firstName: -1 })
+      );
+      ```
+
+# skip mode start don't have time to elaborate things
+
+- # 2.6 Updating and deleting documents
+
+  - `find().countDocuments() ` will return the count of documents return by find
+  - example
+
+    ```js
+    const updateStudent = async (id, updateObject) => {
+      const [updateResult, updateError] = await of(
+        Student.updateOne(
+          { _id: id },
+          {
+            $set: updateObject,
+          }
+        )
+      );
+
+      if (updateError)
+        return console.error(`There was this error: `, updateError);
+      console.log(`Update successfully, result`, updateResult);
+    };
+    updateStudent("613a12a035240311bc9eb527", { passed: false });
+    ```
+
+  - delete example
+
+    ```js
+    const deleteStudent = async (id) => {
+      const [deleteResult, deleteError] = await of(
+        Student.deleteOne({ _id: id })
+      );
+
+      if (deleteError)
+        return console.error(`There was this error: `, deleteError);
+      console.log(`Delete successfully, result`, deleteResult);
+    };
+
+    deleteStudent("613a5c56781af74eee88a81b");
+    ```
+
+- # 2.7 Built-in Validators
+- # 2.8 Custom Validators
+- # 2.9 Error messages
 
 - # 3. Combining MongoDB with Express
   - # 3.1 Structuring Project

@@ -58,4 +58,29 @@ const readStudent = async () => {
   console.log("result", students);
 };
 
-readStudent();
+// readStudent();
+
+const updateStudent = async (id, updateObject) => {
+  const [updateResult, updateError] = await of(
+    Student.updateOne(
+      { _id: id },
+      {
+        $set: updateObject,
+      }
+    )
+  );
+
+  if (updateError) return console.error(`There was this error: `, updateError);
+  console.log(`Update successfully, result`, updateResult);
+};
+
+// updateStudent("613a12a035240311bc9eb527", { passed: false });
+
+const deleteStudent = async (id) => {
+  const [deleteResult, deleteError] = await of(Student.deleteOne({ _id: id }));
+
+  if (deleteError) return console.error(`There was this error: `, deleteError);
+  console.log(`Delete successfully, result`, deleteResult);
+};
+
+deleteStudent("613a5c56781af74eee88a81b");
