@@ -13,14 +13,10 @@ const errorNotFound = (res) => {
   return res.status(404).send("Resource not found!");
 };
 const remove = async (req, res) => {
-  const id = +req.params.id;
-  //const name = req.body.name;
-
-  // const students = await db.getStudents();
-  // const student = students.find((student) => student.id === id);
-  // if (!student) return res.status(404).send("Student not found");
-  // console.log("student from delete student", student);
-  // const deleteResult = await db.deleteStudent(student);
+  const [deleteResult, deleteError] = await of(
+    Student.findByIdAndDelete(req.params.id)
+  );
+  if (deleteError || !deleteResult) return errorNotFound(res);
   res.send(deleteResult);
 };
 const create = async (req, res) => {
@@ -31,15 +27,11 @@ const create = async (req, res) => {
 };
 
 const update = async (req, res) => {
-  const id = +req.params.id;
-  const name = req.body.name;
-
-  // const students = await db.getStudents();
-  // const student = students.find((student) => student.id === id);
-  // if (!student) res.status(404).send("Student not found");
-
-  // const insertResult = await db.updateStudent({ name, id });
-  // res.send(insertResult);
+  const [updateResult, updateError] = await of(
+    Student.findByIdAndUpdate(req.params.id, req.body, { new: true })
+  );
+  if (updateError || !updateResult) return errorNotFound(res);
+  res.send(updateResult);
 };
 const list = async (req, res) => {
   const [students] = await of(Student.find().sort({ name: 1 }));

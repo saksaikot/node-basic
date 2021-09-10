@@ -1051,6 +1051,30 @@
 
   - # 3.6 Put and delete - update and delete document
 
+    - put example
+
+      ```js
+      const update = async (req, res) => {
+        const [updateResult, updateError] = await of(
+          Student.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        );
+        if (updateError || !updateResult) return errorNotFound(res);
+        res.send(updateResult);
+      };
+      ```
+
+    - delete example
+
+      ```js
+      const remove = async (req, res) => {
+        const [deleteResult, deleteError] = await of(
+          Student.findByIdAndDelete(req.params.id)
+        );
+        if (deleteError || !deleteResult) return errorNotFound(res);
+        res.send(deleteResult);
+      };
+      ```
+
 - # 4. Authentication
   - # 4.1 Creating user Model
   - # 4.2 Registering User
