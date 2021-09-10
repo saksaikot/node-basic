@@ -1,4 +1,14 @@
 // const db = require("../db");
+const { Student } = require("../models/Student");
+const { of } = require("await-of");
+
+const errorBadRequest = (res, { errors }) => {
+  const message = [];
+  for (const errorKey in errors) {
+    message.push(errors[errorKey].message);
+  }
+  return res.status(400).send(message);
+};
 const remove = async (req, res) => {
   const id = +req.params.id;
   //const name = req.body.name;
@@ -12,9 +22,11 @@ const remove = async (req, res) => {
 };
 const create = async (req, res) => {
   const studentName = req.body.name;
-  // const result = await db.insertStudent(studentName);
-  // res.send(result);
+  const [saveResult, saveError] = await of(new Student(req.body).save());
+  if (saveError) return errorBadRequest(res, saveError);
+  res.send(saveResult);
 };
+
 const update = async (req, res) => {
   const id = +req.params.id;
   const name = req.body.name;

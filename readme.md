@@ -940,12 +940,94 @@
     ```
 
 - # 3. Combining MongoDB with Express
+
   - # 3.1 Structuring Project
+    - copied my-express project, changed it name to my-express-mongo
+    - cleanup db.json and db.js related files
+    - cleanup any other unused codes
+    - created models folder for mongoose
+    - this model will link mongoose to mongodb
   - # 3.2 Defining Model
+
+    - ```js
+      const { Schema, model } = require("mongoose");
+
+      const studentSchema = Schema({
+        name: { type: String, required: true },
+        age: { type: Number, min: 0 },
+        hobbies: {
+          type: Array,
+          of: String,
+          validate: {
+            validator: (value) => value.length > 0,
+            message: "There must be at least 1 hobby!",
+          },
+        },
+      });
+
+      const Student = model("Student", studentSchema);
+      module.exports.Student = Student;
+      ```
+
   - # 3.3 Connecting Mongodb
+
+    - code,
+
+      ```js
+      const mongoose = require("mongoose");
+      mongoose
+        .connect("mongodb://localhost:27017/my-express-mongo")
+        .then((e) => console.log("connected to mongo db"))
+        .catch((e) => console.error("couldn't connect to mongodb"));
+      ```
+
+    - removed few `db.js` import
+
   - # 3.4 Post Request - Create Document
+
+    - ```js
+      const errorBadRequest = (res, { errors }) => {
+        const message = [];
+        for (const errorKey in errors) {
+          message.push(errors[errorKey].message);
+        }
+        return res.status(400).send(message);
+      };
+      ```
+    - create
+
+      ```js
+      const create = async (req, res) => {
+        const studentName = req.body.name;
+        const [saveResult, saveError] = await of(new Student(req.body).save());
+        if (saveError) return errorBadRequest(res, saveError);
+        res.send(saveResult);
+      };
+      ```
+
+    - postman request incorrect
+
+      ```json
+      {
+        "name": "sultan saikot",
+        "age": -1,
+        "hobbies": []
+      }
+      ```
+
+    - correct
+
+      ```json
+      {
+        "name": "sultan saikot",
+        "age": 30,
+        "hobbies": ["music", "gardening"]
+      }
+      ```
+
   - # 3.5 Get Request - Read Documents
   - # 3.6 Put and delete - update and delete document
+
 - # 4. Authentication
   - # 4.1 Creating user Model
   - # 4.2 Registering User
