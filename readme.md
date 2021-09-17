@@ -1231,7 +1231,28 @@
     - is three part encoded string
     - #1 is algorithm type,#2 payload/data #3 verify signature
     - the part 3 is important, it ensures the data is generated from server, on server it uses a private key to sign the data, this makes sure no one from outside can't generate the signature
+    - `npm i jsonwebtoken`
+    - `const jwt=require("jsonwebtoken")`
+    - `const jwtToken=jwt.sign(data,secretKey);`
   - # 4.6 Environment variables
+
+    - separate app file into app and server file, express related files are in app file and other files are in server file
+    - install dotenv `npm i dotenv`
+    - import and apply configs from `config.env` file
+    - code
+
+      ```js
+      const dotenv = require("dotenv");
+      dotenv.config({ path: "./config.env" });
+
+      // alternate
+      require("dotenv").config({ path: "./config.env" });
+      ```
+
+    - now we can get the variable from `process.env.VARIABLE_NAME`
+    - env variable name should be all uppercase like const variable naming convention
+    - used `morgan` if app is in development mode
+
   - # 4.7 Storing Secret Key in environment variable
   - # 4.8 Send JWT to new user
 
