@@ -1167,8 +1167,70 @@
       ```
 
   - # 4.3 Hashing Password
+
+    - code
+
+    ```js
+    const bcrypt = require("bcrypt");
+
+    // create
+
+    const [newUser, newUserError] = await of(new User(req.body).validate());
+    if (newUserError) return errorBadRequest(res, newUserError);
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    const { email, name } = req.body;
+    const password = hashedPassword;
+
+    const [save, saveError] = await of(
+      new User({ email, name, password }).save()
+    );
+    ```
+
+  - example
+
+    ```js
+    const bcrypt = require("bcrypt");
+
+    const hashPassword = async (password) => {
+      const salt = await bcrypt.genSalt(10);
+      await bcrypt.hash(password, salt);
+      return await bcrypt.hash(password, salt);
+    };
+    hashPassword("saikot").then((pass) => console.log(pass));
+    ```
+
   - # 4.4 Authenticate
+
+    - `/api/auth` will receive email and password to authenticate user
+    - used save create user code but now to check it against server
+    - code
+
+      ```js
+      const create = async (req, res) => {
+        const [user, findError] = await of(
+          User.findOne({ email: req.body.email })
+        );
+        if (findError || !user)
+          return errorBadRequest(res, { message: "invalid email/password" });
+
+        const hashedPassword = await bcrypt.compare(
+          req.body.password,
+          user.password
+        );
+        if (!hashedPassword)
+          return errorBadRequest(res, { message: "invalid email/password" });
+
+        res.send({ message: "Logged in successfully" });
+      };
+      ```
+
   - # 4.5 Json Web Token
+    - jwt is like a passport and the validator is server, so is nearly impossible to modify this token and it helps the stateless architecture
+    - more on [jwt.io](http://jwt.io)
+    - is three part encoded string
+    - #1 is algorithm type,#2 payload/data #3 verify signature
+    - the part 3 is important, it ensures the data is generated from server, on server it uses a private key to sign the data, this makes sure no one from outside can't generate the signature
   - # 4.6 Environment variables
   - # 4.7 Storing Secret Key in environment variable
   - # 4.8 Send JWT to new user

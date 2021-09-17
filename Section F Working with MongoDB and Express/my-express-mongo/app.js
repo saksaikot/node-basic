@@ -1,6 +1,7 @@
 const express = require("express");
 const studentsRoutes = require("./Routes/students");
 const usersRoutes = require("./Routes/users");
+const authRoutes = require("./Routes/auth");
 const morgan = require("morgan");
 
 const mongoose = require("mongoose");
@@ -14,6 +15,7 @@ app.use(morgan("dev"));
 
 app.use("/api/students", studentsRoutes);
 app.use("/api/users", usersRoutes);
+app.use("/api/auth", authRoutes);
 app.get("/", (req, res) => {
   res.send("hello from express");
 });

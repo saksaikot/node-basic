@@ -6,7 +6,7 @@ const create = async (req, res) => {
   const [findResult, findError] = await of(
     User.findOne({ email: req.body.email })
   );
-  if (findError) return errorBadRequest(res, findError);
+  if (findResult) return errorBadRequest(res, {message:"Email already exist"});
 
   const [newUser, newUserError] = await of(new User(req.body).validate());
   if (newUserError) return errorBadRequest(res, newUserError);
