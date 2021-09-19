@@ -1317,6 +1317,8 @@
       ```
 
   - # 5.3 Current user and logging out
+  - created users/me end point
+  - there is no need to build any logout endpoint, since we only generating token and not storing it elsewhere the token can be removed easily from client side to make the logout functionality
   - # 5.4 Role based Authorization
 
 - # 6. Burger Builder Project Back-end with Node

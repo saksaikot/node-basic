@@ -26,10 +26,14 @@ const create = async (req, res) => {
     data: { email, name },
   });
 };
+const me = (req, res) => {
+  res.send(req.user);
+};
 module.exports = {
   // list,
   // item,
   // update,
   create,
   // remove,
+  me,
 };
