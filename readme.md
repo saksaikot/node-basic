@@ -1254,6 +1254,10 @@
     - used `morgan` if app is in development mode
 
   - # 4.7 Storing Secret Key in environment variable
+
+    - added JWT_SECRET in config.env
+    - get the jwt_secret from env `process.env.JWT_SECRET`
+
   - # 4.8 Send JWT to new user
 
 - # 5. Authorization

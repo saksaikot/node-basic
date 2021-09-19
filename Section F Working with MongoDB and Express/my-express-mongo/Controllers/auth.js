@@ -14,7 +14,7 @@ const create = async (req, res) => {
 
   const jwtToken = jwt.sign(
     { _id: user._id, email: user.email },
-    "MyPersonalKey12345"
+    process.env.JWT_SECRET
   );
   res.send({ message: "Logged in successfully", token: jwtToken });
 };
