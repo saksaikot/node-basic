@@ -2,7 +2,7 @@ const { User } = require("../models/User");
 const { of } = require("await-of");
 const { errorBadRequest, errorNotFound } = require("./helper");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 const create = async (req, res) => {
   const [user, findError] = await of(User.findOne({ email: req.body.email }));
   if (findError || !user)
@@ -12,11 +12,14 @@ const create = async (req, res) => {
   if (!hashedPassword)
     return errorBadRequest(res, { message: "invalid email/password" });
 
-  const jwtToken = jwt.sign(
-    { _id: user._id, email: user.email },
-    process.env.JWT_SECRET
-  );
-  res.send({ message: "Logged in successfully", token: jwtToken });
+  // const jwtToken = jwt.sign(
+  //   { _id: user._id, email: user.email },
+  //   process.env.JWT_SECRET
+  // );
+  res.send({
+    message: "Logged in successfully",
+    token: user.generateJWTToken(),
+  });
 };
 module.exports = {
   // list,

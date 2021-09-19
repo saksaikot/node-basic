@@ -1,3 +1,4 @@
+const jwt = require("jsonwebtoken");
 const { Schema, model } = require("mongoose");
 
 const userSchema = Schema({
@@ -21,5 +22,8 @@ const userSchema = Schema({
     maxlength: 1024,
   },
 });
+userSchema.methods.generateJWTToken = function () {
+  return jwt.sign({ _id: this._id, email: this.email }, process.env.JWT_SECRET);
+};
 
 exports.User = model("User", userSchema);

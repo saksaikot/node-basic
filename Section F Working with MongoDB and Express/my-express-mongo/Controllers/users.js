@@ -6,7 +6,8 @@ const create = async (req, res) => {
   const [findResult, findError] = await of(
     User.findOne({ email: req.body.email })
   );
-  if (findResult) return errorBadRequest(res, {message:"Email already exist"});
+  if (findResult)
+    return errorBadRequest(res, { message: "Email already exist" });
 
   const [newUser, newUserError] = await of(new User(req.body).validate());
   if (newUserError) return errorBadRequest(res, newUserError);
@@ -19,8 +20,11 @@ const create = async (req, res) => {
     new User({ email, name, password }).save()
   );
   if (saveError) return errorBadRequest(res, saveError);
-
-  res.send({ email, name });
+  res.send({
+    message: "Signed up successfully",
+    token: save.generateJWTToken(),
+    data: { email, name },
+  });
 };
 module.exports = {
   // list,

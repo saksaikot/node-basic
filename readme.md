@@ -1260,6 +1260,36 @@
 
   - # 4.8 Send JWT to new user
 
+    - in user controller
+
+    ```js
+    res.send({
+      message: "Signed up successfully",
+      token: save.generateJWTToken(),
+      data: { email, name },
+    });
+    ```
+
+    - in auth controller
+
+      ```js
+      res.send({
+        message: "Logged in successfully",
+        token: user.generateJWTToken(),
+      });
+      ```
+
+    - in user model
+
+      ```js
+      userSchema.methods.generateJWTToken = function () {
+        return jwt.sign(
+          { _id: this._id, email: this.email },
+          process.env.JWT_SECRET
+        );
+      };
+      ```
+
 - # 5. Authorization
   - # 5.1 Request Header
   - # 5.2 Protect Route using middleware
