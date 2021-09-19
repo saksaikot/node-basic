@@ -1291,10 +1291,34 @@
       ```
 
 - # 5. Authorization
+
   - # 5.1 Request Header
+
+    - see the `req.header()` method
+    - it extract the value of header key , ie: `req.header('Authorization') `
+
   - # 5.2 Protect Route using middleware
+
+    - authorize middleware
+
+      ```js
+      const jwt = require("jsonwebtoken");
+      module.exports = function (req, res, next) {
+        const token = req.header("Authorization");
+        const jwtToken = token ? token.split(" ")[1] : null;
+        if (!jwtToken) res.status(401).send("Not Authorized");
+        try {
+          req.user = jwt.verify(jwtToken, process.env.JWT_SECRET);
+          next();
+        } catch (error) {
+          res.status(400).send("Bad request");
+        }
+      };
+      ```
+
   - # 5.3 Current user and logging out
   - # 5.4 Role based Authorization
+
 - # 6. Burger Builder Project Back-end with Node
   - # 6.1 Setting up project
   - # 6.2 Creating user schema
