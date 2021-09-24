@@ -1352,7 +1352,18 @@
     - for multiple middlewares we pass array of middlewares
 
 - # 6. Burger Builder Project Back-end with Node
+
   - # 6.1 Setting up project
+
+    - created a burger-builder-api folder under section f
+    - initiate npm `npm init --yes`
+    - installed needed packages `npm i dotenv express morgan bcrypt jsonwebtoken joi cors lodash `
+    - created new folder and files
+
+      - files: app.js server.js .env .gitignore
+
+      - folders: controllers,models,routes,middlewares
+
   - # 6.2 Creating user schema
   - # 6.3 Validation with joi
   - # 6.4 Registering new user
@@ -1360,6 +1371,7 @@
   - # 6.6 Creating order schema
   - # 6.7 New order and order list
   - # 6.8. Testing our backend API
+
 - # 7. Burger Builder Project Customizing React App (Front-End)
   - # 7.1 Project setup
   - # 7.2 Authentication URLS
