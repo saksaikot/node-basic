@@ -1321,6 +1321,36 @@
   - there is no need to build any logout endpoint, since we only generating token and not storing it elsewhere the token can be removed easily from client side to make the logout functionality
   - # 5.4 Role based Authorization
 
+    - updated user model
+
+          ```js
+            role: {
+
+                type: String,
+                enum: ["admin", "user"],
+                default: "user",
+            },
+          ////
+          jwt.sign(
+              { _id: this._id, email: this.email, role: this.role },
+              process.env.JWT_SECRET
+            )
+          ```
+
+    - added admin middleware
+
+      ```js
+      module.exports = function (req, res, next) {
+      console.log(req.user);
+      if (req.user.role !== "admin") return res.status(403).send("Forbidden");
+      next();
+      ;
+
+      ```
+
+    - note must update jwtToken generator to have role field and must call authorize middleware before admin middleware, admin middleware use req.user object set by authorize middleware
+    - for multiple middlewares we pass array of middlewares
+
 - # 6. Burger Builder Project Back-end with Node
   - # 6.1 Setting up project
   - # 6.2 Creating user schema
