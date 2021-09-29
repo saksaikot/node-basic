@@ -1365,6 +1365,16 @@
       - folders: controllers,models,routes,middlewares
 
   - # 6.2 Creating user schema
+
+    - created user schema and model and added a method generateJWT
+    - added 3rd parameter in jwt.sign method, passed {expiresIn:time}, here time in second as int and in hour like "1h" as string
+
+      ```js
+      jwt.sign({ _id: this._id, email: this.email }, process.env.JWT_SECRET, {
+        expiresIn: "1h", // time in second ie: 60*60 for 1 hour, or string like "1h"
+      });
+      ```
+
   - # 6.3 Validation with joi
   - # 6.4 Registering new user
   - # 6.5 Authenticating user
