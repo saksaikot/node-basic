@@ -1480,6 +1480,34 @@
       ```
 
   - # 6.6 Creating order schema
+
+    - needed to use `type` property, since it is a special keyword in mongoose schema, we simple mention its type object, ie: `{type:{type:String}}`
+
+    - code
+
+      ```js
+      const orderSchema = Schema({
+        userId: Schema.Types.ObjectId,
+        ingredients: [
+          {
+            type: { type: String },
+            amount: Number,
+          },
+        ],
+        customer: {
+          deliveryAddress: String,
+          phone: String,
+          paymentType: String,
+        },
+        price: Number,
+        orderTime: {
+          type: Date,
+          default: Date.now(),
+        },
+      });
+      const Order = model("Order", orderSchema);
+      ```
+
   - # 6.7 New order and order list
   - # 6.8. Testing our backend API
 

@@ -4,6 +4,7 @@ dotenv.config({ path: "./.env.local" });
 const express = require("express");
 const cors = require("cors");
 const usersRoutes = require("./routes/users");
+const ordersRoutes = require("./routes/orders");
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -16,6 +17,7 @@ app.use(express.json());
 
 //routes
 app.use("/users", usersRoutes);
+app.use("/orders", ordersRoutes);
 
 app.get("/", (req, res) => {
   res.send("hello from express");
