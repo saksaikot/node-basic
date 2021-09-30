@@ -1376,6 +1376,34 @@
       ```
 
   - # 6.3 Validation with joi
+
+    - import Joi from 'joi'
+    - code example
+
+      ```js
+      const userValidationSchema = Joi.object({
+        email: Joi.string().email().max(255).required(),
+        password: Joi.string().max(255).min(8).required(),
+      });
+      const validateUser = function (user) {
+        const { error } = userValidationSchema.validate(user, {
+          abortEarly: false,
+        });
+        return error
+          ? error.details.reduce(
+              (previous, current) => [
+                ...previous,
+                { key: current.context.key, message: current.message },
+              ],
+              []
+            )
+          : null;
+      };
+      ```
+
+    - exported validateUser from user model
+    - used abortEarly:false in joi schema validate to grub all error message at once
+
   - # 6.4 Registering new user
   - # 6.5 Authenticating user
   - # 6.6 Creating order schema

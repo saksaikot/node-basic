@@ -23,8 +23,23 @@ userSchema.methods.generateJWT = function () {
     }
   );
 };
-const validation = function (data) {};
+const userValidationSchema = Joi.object({
+  email: Joi.string().email().max(255).required(),
+  password: Joi.string().max(255).min(8).required(),
+});
+const validateUser = function (user) {
+  const { error } = userValidationSchema.validate(user, { abortEarly: false });
+  return error
+    ? error.details.reduce(
+        (previous, current) => [
+          ...previous,
+          { key: current.context.key, message: current.message },
+        ],
+        []
+      )
+    : null;
+};
 
 const User = model("User", userSchema);
 
-module.exports = { User, userValidation: validation };
+module.exports = { User, validateUser };
