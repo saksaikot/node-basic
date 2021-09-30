@@ -1405,6 +1405,54 @@
     - used abortEarly:false in joi schema validate to grub all error message at once
 
   - # 6.4 Registering new user
+
+    - `bcrypt.genSalt(10)` must needs to await
+
+    - example code
+
+      ```js
+      const create = async function (req, res) {
+        const error = validateUser(req.body);
+        if (error) return res.status(400).send(error);
+        const { email, password } = req.body;
+        const [userExist] = await of(User.findOne({ email }));
+        if (userExist) return res.status(400).send("user already exists");
+        // console.log(User);
+        // const hashedPassword = await User.hashedPassword(password);
+        const newUser = new User({ email, password });
+
+        newUser.password = await newUser.hashedPassword();
+        const token = newUser.generateJWT();
+        const [, saveError] = await of(newUser.save());
+
+        if (saveError)
+          return res
+            .status(400)
+            .send("something failed while creating account");
+        // console.log("pick", _pick(newUser, ["email", "_id"]));
+        const result = {
+          token,
+          data: _pick(newUser, ["email", "_id"]),
+        };
+        res.send(result);
+      };
+      ```
+
+    - created new \_pick function alternate to lodash
+
+      ```js
+      function _pick(object, ...keys) {
+        keys = keys.flat();
+        const result = {};
+        for (let key in object) {
+          if (keys.includes(key)) {
+            result[key] = object[key];
+          }
+        }
+        return result;
+      }
+      ```
+
   - # 6.5 Authenticating user
   - # 6.6 Creating order schema
   - # 6.7 New order and order list

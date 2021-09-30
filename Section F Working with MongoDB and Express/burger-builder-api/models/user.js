@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 const jwt = require("jsonwebtoken");
 const Joi = require("joi");
+const bcrypt = require("bcrypt");
 const userSchema = Schema({
   email: {
     type: String,
@@ -22,6 +23,10 @@ userSchema.methods.generateJWT = function () {
       expiresIn: "1h", // time in second ie: 60*60 for 1 hour, or string like "1h"
     }
   );
+};
+userSchema.methods.hashedPassword = async function () {
+  const salt = await bcrypt.genSalt(10);
+  return bcrypt.hash(this.password, salt);
 };
 const userValidationSchema = Joi.object({
   email: Joi.string().email().max(255).required(),
