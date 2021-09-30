@@ -1453,7 +1453,32 @@
       }
       ```
 
+    - have look on `npm joi-password-complexity`
+
   - # 6.5 Authenticating user
+
+    - example code
+
+      ```js
+      const auth = async function (req, res) {
+        const error = validateUser(req.body);
+        if (error) return res.status(400).send(error);
+        const { email, password } = req.body;
+        const [user, userError] = await of(User.findOne({ email }));
+        if (userError || !user)
+          return res.status(400).send("Invalid user or password");
+
+        const validUser = await user.validatePassword(password);
+        if (!validUser) return res.status(400).send("Invalid user or password");
+        const token = user.generateJWT();
+        const result = {
+          token,
+          data: _pick(user, ["email", "_id"]),
+        };
+        res.send(result);
+      };
+      ```
+
   - # 6.6 Creating order schema
   - # 6.7 New order and order list
   - # 6.8. Testing our backend API

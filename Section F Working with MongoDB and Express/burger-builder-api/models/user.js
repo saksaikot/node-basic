@@ -28,6 +28,9 @@ userSchema.methods.hashedPassword = async function () {
   const salt = await bcrypt.genSalt(10);
   return bcrypt.hash(this.password, salt);
 };
+userSchema.methods.validatePassword = function (password) {
+  return bcrypt.compare(password, this.password);
+};
 const userValidationSchema = Joi.object({
   email: Joi.string().email().max(255).required(),
   password: Joi.string().max(255).min(8).required(),
