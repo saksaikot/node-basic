@@ -16,8 +16,8 @@ app.use(express.json());
 // }
 
 //routes
-app.use("/users", usersRoutes);
-app.use("/orders", ordersRoutes);
+app.use("/api/users", usersRoutes);
+app.use("/api/orders", ordersRoutes);
 
 app.get("/", (req, res) => {
   res.send("hello from express");

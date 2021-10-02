@@ -1,11 +1,11 @@
 const { Schema, model } = require("mongoose");
 
 const orderSchema = Schema({
-  userId: Schema.Types.ObjectId,
+  userId: { type: Schema.Types.ObjectId, required: true },
   ingredients: [
     {
-      type: { type: String },
-      amount: Number,
+      type: { type: String, required: true },
+      amount: { type: Number, required: true },
     },
   ],
   customer: {
@@ -13,7 +13,7 @@ const orderSchema = Schema({
     phone: String,
     paymentType: String,
   },
-  price: Number,
+  price: { type: Number, required: true },
   orderTime: {
     type: Date,
     default: Date.now(),

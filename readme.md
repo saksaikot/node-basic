@@ -1509,7 +1509,12 @@
       ```
 
   - # 6.7 New order and order list
+
+    - created order controllers, create, list, item
+    - used authorize middleware
+
   - # 6.8. Testing our backend API
+    - tested all api's endpoints
 
 - # 7. Burger Builder Project Customizing React App (Front-End)
   - # 7.1 Project setup
