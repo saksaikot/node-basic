@@ -28,7 +28,7 @@ const create = async function (req, res) {
 };
 
 const auth = async function (req, res) {
-  console.log(req);
+  // console.log(req);
   const error = validateUser(req.body);
   if (error) return res.status(400).send(error);
   const { email, password } = req.body;

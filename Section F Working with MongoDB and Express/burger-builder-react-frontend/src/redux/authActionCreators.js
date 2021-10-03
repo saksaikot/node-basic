@@ -3,7 +3,7 @@ import { fetchOrders } from "./actionCreators";
 import * as actionTypes from "./actionTypes";
 import jwt_decode from "jwt-decode";
 
-const API_KEY = "AIzaSyAq99GLVWPqHfNWgL4NPw0_pDpaDv4s-VU";
+// const API_KEY = "AIzaSyAq99GLVWPqHfNWgL4NPw0_pDpaDv4s-VU";
 
 export const authSuccess = ({ userId, token }) => ({
   type: actionTypes.AUTH_SUCCESS,
