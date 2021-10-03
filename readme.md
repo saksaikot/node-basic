@@ -1518,8 +1518,15 @@
 
 - # 7. Burger Builder Project Customizing React App (Front-End)
   - # 7.1 Project setup
+    - copied src and public folder and package.json file from react burger-builder project
+    - added .gitignore file
   - # 7.2 Authentication URLS
+    - changed auth and login endpoint,
+    - saved base endpoint in env file
+    - changed data structure in model( backend or node)
+    - processed errors and got the message from `error.response`
   - # 7.3 Order URLS
+    - Fixed order fetch and save order uri
 
 # Section G Deployment
 

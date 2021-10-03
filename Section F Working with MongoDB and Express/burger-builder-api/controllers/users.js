@@ -28,15 +28,21 @@ const create = async function (req, res) {
 };
 
 const auth = async function (req, res) {
+  console.log(req);
   const error = validateUser(req.body);
   if (error) return res.status(400).send(error);
   const { email, password } = req.body;
   const [user, userError] = await of(User.findOne({ email }));
   if (userError || !user)
-    return res.status(400).send("Invalid user or password");
+    return res
+      .status(400)
+      .send({ error: true, message: "Invalid user or password" });
 
   const validUser = await user.validatePassword(password);
-  if (!validUser) return res.status(400).send("Invalid user or password");
+  if (!validUser)
+    return res
+      .status(400)
+      .send({ error: true, message: "Invalid user or password" });
   const token = user.generateJWT();
   const result = {
     token,

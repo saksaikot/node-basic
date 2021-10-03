@@ -1,0 +1,8 @@
+.ingredient {
+  text-align: center;
+  margin: 5px;
+}
+
+.ingredient__img {
+  width: 80%;
+}

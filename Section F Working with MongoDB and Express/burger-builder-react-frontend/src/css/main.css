@@ -1,0 +1,8 @@
+@import-normalize;
+@import "./header.css";
+@import "./ingredient.css";
+@import "./burger.css";
+@import "./control.css";
+@import "./checkout.css";
+@import "./loader.css";
+@import "./helper.css";

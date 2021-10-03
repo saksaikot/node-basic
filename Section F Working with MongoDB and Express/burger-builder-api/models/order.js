@@ -4,14 +4,15 @@ const orderSchema = Schema({
   userId: { type: Schema.Types.ObjectId, required: true },
   ingredients: [
     {
-      type: { type: String, required: true },
+      name: { type: String, required: true },
       amount: { type: Number, required: true },
     },
   ],
   customer: {
-    deliveryAddress: String,
+    name: String,
+    address: String,
     phone: String,
-    paymentType: String,
+    payment: String,
   },
   price: { type: Number, required: true },
   orderTime: {

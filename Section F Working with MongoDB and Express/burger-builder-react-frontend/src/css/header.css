@@ -1,0 +1,25 @@
+.navbar {
+  margin-bottom: 20px;
+  height: 70px;
+}
+
+.navbar__brand {
+  color: white;
+  font-size: 0.9rem;
+  margin-top: -20px;
+}
+.navbar__nav-link {
+  text-decoration: none;
+  color: white;
+  font-size: 1.8rem;
+  margin-top: -1.8rem;
+  margin-left: 0.5rem;
+}
+
+.navbar__nav-link:hover {
+  color: wheat;
+}
+
+.navbar__logo {
+  height: 80px;
+}
