@@ -1573,6 +1573,10 @@
     - User--->Cart Item<---Product
     - Order<---Cart Item
   - # 1.3 Project setup (E-Com)
+    - created .env , app.js and server.js file
+    - in .env we stored our private variable like mongodb url, jwt secret key, port and Node_env value
+    - in app we exported app constant from express and used cors and express.json middleware, we loaded morgan conditionally
+    - in server.js file we connected to mongodb and created the server
 - # 2. Node - Authentication and Authorization
   - # 2.1 User model
   - # 2.2 User router and signup
