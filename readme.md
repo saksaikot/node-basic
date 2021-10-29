@@ -1532,15 +1532,25 @@
 
 - # 1. Deployment Overview
   - # 1.1 Deployment Overview
+    - deployment details
+      - need to revisit it for more details, i literally was sloppy for more than 30 days
 - # 2. Hosting Mongodb Database
   - # 2.1 Mongodb Atlas
+    - a server for mongodb, we can choose a server from google storage, or aws or azure
   - # 2.2 Connecting to hosted Database
+    - just need to update the link of monodb atlas link
   - # 2.3 Network Access
+    - in mongodb atlas we need to specify the ip address from where the app running and accessing mongodb
 - # 3. Deploying Node Application
   - # 3.1 Preparing our app
+    - we need to perform some changes to prepare it for heroku
   - # 3.2 Getting started with heroku
+    - just some introductory information about heroku
   - # 3.3 Deploying to heroku
+    - how to deploy apps to heroku
   - # 3.4 Setting environment variables
+    - setting the environment variable
+    - environment variable needs to be set separately in web control panel or from cli
 
 # Section H project - E-Commerce Site with Payment Gateway
 
