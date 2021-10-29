@@ -1556,7 +1556,22 @@
 
 - # 1. Project intro and planning
   - # 1.1 Assignment Overview
+    - discussed details about the e-com assignment
+    - we need to implement these additional feature in our e-com project
+      - Order Ascending-Descending (Dropdown)
+      - Show product By Sold -> dropdown
+      - load more button
+      - Product search
+      - product review
+      - Coupon option-> model => name, discount
+      - show purchase history
+      - validate payment
   - # 1.2 Planning models
+    - models and relations total 6 models
+    - User-1--1-Profile
+    - Category-1---N-Profile
+    - User--->Cart Item<---Product
+    - Order<---Cart Item
   - # 1.3 Project setup (E-Com)
 - # 2. Node - Authentication and Authorization
   - # 2.1 User model
