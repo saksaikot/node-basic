@@ -1579,6 +1579,13 @@
     - in server.js file we connected to mongodb and created the server
 - # 2. Node - Authentication and Authorization
   - # 2.1 User model
+    - user model, required fields
+      - name,email,password,role
+      - role is enum of admin and user
+      - role has default value
+      - passed third parameter , timestamps= true, which will add and update the timestamps automatically
+    - created validateUser function using Joi
+    - added generateJWT method to User model
   - # 2.2 User router and signup
   - # 2.3 User sign in
   - # 2.4 Handle Rejected promise errors
