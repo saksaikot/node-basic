@@ -3,44 +3,51 @@ const Joi = require("joi");
 const jwt = require("jsonwebtoken");
 const { string, required } = require("joi");
 
-const userSchema = Schema({
-  name: {
-    type: String,
-    required: true,
-    minlength: 3,
-    maxlength: 100,
+const userSchema = Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      minlength: 3,
+      maxlength: 100,
+    },
+    password: {
+      type: String,
+      required: true,
+      minlength: 5,
+      maxlength: 1024,
+    },
+    role: {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user",
+    },
   },
-  password: {
-    type: String,
-    required: true,
-    minlength: 5,
-    maxlength: 1024,
-  },
-  role: {
-    type: String,
-    enum: ["user", "admin"],
-    default: "user",
-  },
-},timestamps:true);
-userSchema.methods.generateJWT=function(){
-  const token=jwt.sign({
-    _id:this._id,
-    email:this.email,
-    role:this.role,
-    name:this.name
-  },process.env.JWT_SECRET_KEY,{expiresIn:"7d"});
+  { timestamps: true }
+);
+userSchema.methods.generateJWT = function () {
+  const token = jwt.sign(
+    {
+      _id: this._id,
+      email: this.email,
+      role: this.role,
+      name: this.name,
+    },
+    process.env.JWT_SECRET_KEY,
+    { expiresIn: "7d" }
+  );
   return token;
-}
+};
 
-const validateUser=user=>{
-  const schema=Joi.object({
-    name:Joi.string().min(3).max(100)required(),
-    email:Joi.string().min(5),max(255).required(),
-    password:Joi.string().min(5).max(255).required()
+const validateUser = (user) => {
+  const schema = Joi.object({
+    name: Joi.string().min(3).max(100).required(),
+    email: Joi.string().min(5).max(255).required(),
+    password: Joi.string().min(5).max(255).required(),
   });
   return schema.validate(user);
-}
+};
 
-const User=model("User",userSchema);
+const User = model("User", userSchema);
 
-module.exports={User,validateUser};
+module.exports = { User, validateUser };

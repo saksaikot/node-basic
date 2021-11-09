@@ -1597,6 +1597,11 @@
         - return only '\_id,name,email'
         - used vanillaJs pick function
   - # 2.3 User sign in
+    - created user signin controller
+      - will check if there is user
+      - then compare hash of the input password with user password
+    - fixed some typos and error in code
+    - tested endpoints with postman
   - # 2.4 Handle Rejected promise errors
   - # 2.5 Authorization middleware
 - # 3. Node - Category and Product
