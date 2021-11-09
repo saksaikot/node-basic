@@ -1587,6 +1587,15 @@
     - created validateUser function using Joi
     - added generateJWT method to User model
   - # 2.2 User router and signup
+    - created user router and signup controller
+    - signup controller
+      - validate signup data
+      - check if user exist
+      - for new user
+        - generate password hash
+        - try to save it
+        - return only '\_id,name,email'
+        - used vanillaJs pick function
   - # 2.3 User sign in
   - # 2.4 Handle Rejected promise errors
   - # 2.5 Authorization middleware
