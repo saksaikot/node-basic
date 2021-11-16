@@ -1609,6 +1609,10 @@
     - then we can send response according to error
     - we can group error message by error.message
   - # 2.5 Authorization middleware
+    - created authorization and admin middleware
+    - in authorization middle, we picked the token from `Authorization` header and verify against jwt token
+    - if token verified successfully then we set the `req.user` to decoded token value and called next
+    - in admin middleware we checked if req have user object and then we checked if its role is admin,if not admin then 403 forbidden else call next
 - # 3. Node - Category and Product
   - # 3.1 Category model and router
   - # 3.2 Category routes
