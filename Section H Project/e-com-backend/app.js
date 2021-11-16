@@ -1,5 +1,5 @@
 const express = require("express");
-
+require("express-async-errors");
 const userRouter = require("./routers/users");
 const app = express();
 
@@ -15,4 +15,6 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use("/api/user/", userRouter);
+
+app.use(require("./middlewares/errors"));
 module.exports = app;

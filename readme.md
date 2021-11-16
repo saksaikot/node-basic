@@ -1603,6 +1603,11 @@
     - fixed some typos and error in code
     - tested endpoints with postman
   - # 2.4 Handle Rejected promise errors
+    - we can use `express-async-errors` module to catch unhandled rejected promise
+    - we need to require the module
+    - then we need to write a custom middleware to catch the error
+    - then we can send response according to error
+    - we can group error message by error.message
   - # 2.5 Authorization middleware
 - # 3. Node - Category and Product
   - # 3.1 Category model and router
