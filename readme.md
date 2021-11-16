@@ -1614,7 +1614,13 @@
     - if token verified successfully then we set the `req.user` to decoded token value and called next
     - in admin middleware we checked if req have user object and then we checked if its role is admin,if not admin then 403 forbidden else call next
 - # 3. Node - Category and Product
+
   - # 3.1 Category model and router
+
+    - created category model, validate with joi, created `create` `index` method for controller
+    - created category routes, where post with `authorize` and `admin` middleware and get without any authorization
+    - then added in app.js
+
   - # 3.2 Category routes
   - # 3.3 Product model and router
   - # 3.4 Create product with file upload
@@ -1624,6 +1630,7 @@
   - # 3.8 Product update
   - # 3.9 Filter products part-1
   - # 3.10 Filter products part 2
+
 - # 4. Node - Product cart
   - # 4.1 Refactoring codes
   - # 4.2 Cart model

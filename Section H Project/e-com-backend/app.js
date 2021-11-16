@@ -15,6 +15,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use("/api/user/", userRouter);
+app.use("/api/category", require("./routers/category"));
 
 app.use(require("./middlewares/errors"));
 module.exports = app;
