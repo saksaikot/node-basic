@@ -6,4 +6,4 @@ const router = require("express").Router();
 
 router.route("/").post([authorize, admin], create).get(index);
 
-module.exports(router);
+module.exports = router;

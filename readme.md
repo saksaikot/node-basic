@@ -1622,6 +1622,8 @@
     - then added in app.js
 
   - # 3.2 Category routes
+    - completed create and index functions in category controllers file
+    - fixed few typos and logic in `authorize` `user` middleware and category routes model
   - # 3.3 Product model and router
   - # 3.4 Create product with file upload
   - # 3.5 Upload product with postman

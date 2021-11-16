@@ -4,7 +4,7 @@ const { Schema, model } = require("mongoose");
 const categorySchema = Schema(
   {
     name: {
-      type: String(),
+      type: String,
       unique: true,
       required: true,
     },
@@ -15,7 +15,7 @@ const categorySchema = Schema(
 const Category = model("Category", categorySchema);
 const validate = (category) => {
   const schema = Joi.object({
-    name: Joi().string().min(3).max(50).required(),
+    name: Joi.string().min(3).max(50).required(),
   });
   return schema.validate(category);
 };
