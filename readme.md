@@ -1667,6 +1667,12 @@
     - added photo router
     - fixed req type post to put for update/store product
   - # 3.8 Product update
+    - updated product update
+    - used same function for create and update since they share some codes
+    - this is not ideal and need some optimization
+    - used `Object.assign` instead of lodash \_assign
+    - need to validate update data, or else there will be some error
+    - global unhandled promise rejection not working
   - # 3.9 Filter products part-1
   - # 3.10 Filter products part 2
 
