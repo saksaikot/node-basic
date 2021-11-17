@@ -1625,6 +1625,10 @@
     - completed create and index functions in category controllers file
     - fixed few typos and logic in `authorize` `user` middleware and category routes model
   - # 3.3 Product model and router
+    - created product model
+    - product model have `name` `description` `price`,`category` `quantity` `photo`
+    - category is Schema.Types.objectId and ref `Category`
+    - photo is object of data(type buffer) and contentType
   - # 3.4 Create product with file upload
   - # 3.5 Upload product with postman
   - # 3.6 Filter Product by query string
