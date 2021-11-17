@@ -20,10 +20,10 @@ const productSchema = Schema(
       ref: "Category",
       required: true,
     },
-    quantity:{
-      type:Number,
-      required:true
-    }
+    quantity: {
+      type: Number,
+      required: true,
+    },
     photo: {
       data: Buffer,
       contentType: String,
@@ -39,7 +39,7 @@ const validate = (product) => {
     description: Joi.string().min(3).max(2000).required(),
     price: Joi.number().required(),
     quantity: Joi.number().required(),
-    category:Joi.string().required()
+    category: Joi.string().required(),
   });
   return schema.validate(product);
 };

@@ -1649,6 +1649,11 @@
     - we need to add some extra field or id to mention that the photo was saved successfully
 
   - # 3.5 Upload product with postman
+    - created index method
+    - test data with postman
+    - used formdata in postman
+    - ` fs.readFile(files.photo.filepath, async (err, data) => {` the `files.photo.path` needs to be `files.photo.filepath`
+    - fixed some typos
   - # 3.6 Filter Product by query string
   - # 3.7 Product details and update
   - # 3.8 Product update
