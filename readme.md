@@ -1630,6 +1630,24 @@
     - category is Schema.Types.objectId and ref `Category`
     - photo is object of data(type buffer) and contentType
   - # 3.4 Create product with file upload
+
+    - to use file upload we need to use a package call formidable
+    - first we initiate formidable
+
+      ```js
+      const form = new formidable.IncomingForm();
+      form.keepExtensions = true;
+      ```
+
+    - then we call parse `form.parse(req, parseReq);`
+    - parseReq accept three parameter` (err, fields, files)`
+    - in fields we get datas like json
+    - in files we need to handle it with fs if any file is send like `<file name="photo">` we get it by files.photo
+    - we pass the path of that file in fs ` fs.readFile(files.photo.path, async (err, data) => {}`
+    - then save the data in `product.photo` ie: `product.photo = { data, contentType: files.photo.type };`
+    - then we try to save the data and if success then we return the data without photo field
+    - we need to add some extra field or id to mention that the photo was saved successfully
+
   - # 3.5 Upload product with postman
   - # 3.6 Filter Product by query string
   - # 3.7 Product details and update
