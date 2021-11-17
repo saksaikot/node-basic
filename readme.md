@@ -1660,6 +1660,12 @@
     - we used req.query to capture the query data from the request
     - collect only needed data
   - # 3.7 Product details and update
+    - fixed error in create product method `product.photo = { data, contentType: files.photo.mimetype };` files.photo.type needs to be files.photo.mimetype
+    - added single product and product picture
+    - to response product picture as image file we set its contentType to photo mimetype
+    - added photoById into module export in controller and import in router
+    - added photo router
+    - fixed req type post to put for update/store product
   - # 3.8 Product update
   - # 3.9 Filter products part-1
   - # 3.10 Filter products part 2

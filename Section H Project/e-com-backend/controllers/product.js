@@ -16,7 +16,8 @@ const create = async (req, res) => {
     const product = new Product(fields);
     fs.readFile(files.photo.filepath, async (err, data) => {
       if (err) return res.status(400).send("Problem in file data");
-      product.photo = { data, contentType: files.photo.type };
+      // console.log(files.photo);
+      product.photo = { data, contentType: files.photo.mimetype };
       const saveResult = await product.save();
       return res.status(201).send({
         message: "product created successfully",
@@ -47,7 +48,19 @@ const index = async (req, res) => {
     .limit(limit);
   return res.status(200).send(products);
 };
-const item = async (req, res) => {};
+const item = async (req, res) => {
+  const product = await Product.findById(req.params.id)
+    .populate("category", "name")
+    .select("-photo");
+  if (!product) return res.status(404).send("Product not found");
+  return res.send(product);
+};
+const photoById = async (req, res) => {
+  const product = await Product.findById(req.params.id).select("photo");
+  if (!product) return res.status(404).send("Product not found");
+  res.set("Content-Type", product.photo.contentType);
+  return res.send(product.photo.data);
+};
 const store = async (req, res) => {};
 // const create = async (req, res) => {};
 module.exports = {
@@ -55,4 +68,5 @@ module.exports = {
   index,
   item,
   store,
+  photoById,
 };
