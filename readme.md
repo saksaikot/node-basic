@@ -1655,6 +1655,10 @@
     - ` fs.readFile(files.photo.filepath, async (err, data) => {` the `files.photo.path` needs to be `files.photo.filepath`
     - fixed some typos
   - # 3.6 Filter Product by query string
+    - used the populate method in find filtering
+    - since we used the ref in `Schema.Types.objectId` we can use populate method to directly fetch the category data
+    - we used req.query to capture the query data from the request
+    - collect only needed data
   - # 3.7 Product details and update
   - # 3.8 Product update
   - # 3.9 Filter products part-1

@@ -32,8 +32,19 @@ const create = async (req, res) => {
     });
   }
 };
+// query parameters
 const index = async (req, res) => {
-  const products = await Product.find().select({ photo: 0 });
+  //test query parameter uri ?order=desc&sortBy=name&limit=10
+  console.log(req.query); // accessing query data
+  const query = req.query;
+  const order = query.order === "desc" ? -1 : 1;
+  const sortBy = query.sortBy || "_id";
+  const limit = parseInt(query.limit) || 10;
+  const products = await Product.find()
+    .select({ photo: 0 })
+    .populate("category", "name")
+    .sort({ [sortBy]: order })
+    .limit(limit);
   return res.status(200).send(products);
 };
 const item = async (req, res) => {};
