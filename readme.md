@@ -1674,6 +1674,11 @@
     - need to validate update data, or else there will be some error
     - global unhandled promise rejection not working
   - # 3.9 Filter products part-1
+    - implemented filter post router in product
+    - this need to use for more specific filtration
+    - same as query filter with skip option
+    - skip simply skip the given amount from the result
+    - skip is used in load or next page functionality
   - # 3.10 Filter products part 2
 
 - # 4. Node - Product cart

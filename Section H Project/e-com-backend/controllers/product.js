@@ -97,11 +97,33 @@ const store = async (req, res) => {
   form.keepExtensions = true;
   form.parse(req, parseReq(req, res, true)); //parseReq(res,update:true)
 };
-// const create = async (req, res) => {};
+/*
+ {
+  "order": "desc",
+  "sortBy": "price",
+  "limit": 6,
+  "skip": 0,
+}
+*/
+const filter = async (req, res) => {
+  const query = req.body;
+  const order = query.order === "desc" ? -1 : 1;
+  const sortBy = query.sortBy || "_id";
+  const limit = parseInt(query.limit) || 10;
+  const skip = parseInt(query.skip) || 0;
+  const products = await Product.find()
+    .select({ photo: 0 })
+    .populate("category", "name")
+    .sort({ [sortBy]: order })
+    .skip(skip)
+    .limit(limit);
+  return res.status(200).send(products);
+};
 module.exports = {
   create,
   index,
   item,
   store,
   photoById,
+  filter,
 };
