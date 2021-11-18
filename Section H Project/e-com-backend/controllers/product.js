@@ -103,15 +103,51 @@ const store = async (req, res) => {
   "sortBy": "price",
   "limit": 6,
   "skip": 0,
+  "filter":{
+    "range":{
+      "price":[10,1000]
+    },
+    "in":{
+      "category":["category-object-id"]
+    }
+  }
 }
 */
+const processFilterRange = (range) => {
+  const args = {};
+  for (let key in range) {
+    args[key] = {
+      $gte: range[key][0],
+      $lte: range[key][1],
+    };
+  }
+  return args;
+};
+const processFilterIn = (range) => {
+  const args = {};
+  for (let key in range) {
+    args[key] = {
+      $in: range[key],
+    };
+  }
+  return args;
+};
 const filter = async (req, res) => {
   const query = req.body;
+  const filter = query.filter;
   const order = query.order === "desc" ? -1 : 1;
   const sortBy = query.sortBy || "_id";
   const limit = parseInt(query.limit) || 10;
   const skip = parseInt(query.skip) || 0;
-  const products = await Product.find()
+  let args = {};
+  if (filter.range) {
+    args = { ...args, ...processFilterRange(filter.range) };
+  }
+  if (filter.in) {
+    args = { ...args, ...processFilterIn(filter.in) };
+  }
+  console.log(args);
+  const products = await Product.find(args)
     .select({ photo: 0 })
     .populate("category", "name")
     .sort({ [sortBy]: order })

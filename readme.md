@@ -1681,6 +1681,51 @@
     - skip is used in load or next page functionality
   - # 3.10 Filter products part 2
 
+    - added advanced filter, filter by range and filter by in/ matched fields
+    - sample data send
+
+      ```json
+      {
+        "order": "desc",
+        "sortBy": "price",
+        "limit": 2,
+        "skip": 0,
+        "filter": {
+          "range": {
+            "price": [10, 1000],
+            "quantity": [1, 40]
+          },
+          "in": {
+            "category": ["6193ef84d60e63b3596cb353"]
+          }
+        }
+      }
+      ```
+
+    - filter processing functions
+
+      ```js
+      const processFilterRange = (range) => {
+        const args = {};
+        for (let key in range) {
+          args[key] = {
+            $gte: range[key][0],
+            $lte: range[key][1],
+          };
+        }
+        return args;
+      };
+      const processFilterIn = (range) => {
+        const args = {};
+        for (let key in range) {
+          args[key] = {
+            $in: range[key],
+          };
+        }
+        return args;
+      };
+      ```
+
 - # 4. Node - Product cart
   - # 4.1 Refactoring codes
   - # 4.2 Cart model
