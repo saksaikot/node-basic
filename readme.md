@@ -1736,6 +1736,9 @@
   - # 4.3 Cart controller and router
     - created cart controller and router files, not implemented controller functions
   - # 4.4 Cart item Crud
+    - implemented crud operation
+    - used {user} filter to make sure same user if performing the action
+    - used a property deleted to work with delete instead of deleting cartItem data
   - # 4.5 Profile model and router
 - # 5. React - Routing and User Authentication
   - # 5.1 Loading the React app
