@@ -1734,6 +1734,7 @@
   - # 4.2 Cart model
     - model have product,price,count,user,purchased,deleted
   - # 4.3 Cart controller and router
+    - created cart controller and router files, not implemented controller functions
   - # 4.4 Cart item Crud
   - # 4.5 Profile model and router
 - # 5. React - Routing and User Authentication
