@@ -1740,6 +1740,9 @@
     - used {user} filter to make sure same user if performing the action
     - used a property deleted to work with delete instead of deleting cartItem data
   - # 4.5 Profile model and router
+    - created profile model, router and controller
+    - implemented get and create profile without validation
+    - tested with postman
 - # 5. React - Routing and User Authentication
   - # 5.1 Loading the React app
   - # 5.2 Project setup
