@@ -1732,6 +1732,7 @@
     - all middleware are moved in index.js of middleware file,which takes app
     - same with routing
   - # 4.2 Cart model
+    - model have product,price,count,user,purchased,deleted
   - # 4.3 Cart controller and router
   - # 4.4 Cart item Crud
   - # 4.5 Profile model and router
