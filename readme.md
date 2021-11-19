@@ -1728,6 +1728,9 @@
 
 - # 4. Node - Product cart
   - # 4.1 Refactoring codes
+    - app.js file is refactored
+    - all middleware are moved in index.js of middleware file,which takes app
+    - same with routing
   - # 4.2 Cart model
   - # 4.3 Cart controller and router
   - # 4.4 Cart item Crud
