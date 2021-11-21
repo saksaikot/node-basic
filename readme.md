@@ -1745,6 +1745,13 @@
     - tested with postman
 - # 5. React - Routing and User Authentication
   - # 5.1 Loading the React app
+    - created react app in section h "e-com-frontend"
+    - `npx create-react-app e-com-frontend`
+    - cleaned up structure, removed unnecessary files
+    - change title of index page in public folder
+    - added bootstrap cdn link
+    - added e-com favicon
+    - installed dependent packages `npm i react-router-dom axios jwt-decode`
   - # 5.2 Project setup
   - # 5.3 Navigation menu
   - # 5.4 Login and register user part 1
