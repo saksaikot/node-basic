@@ -1753,6 +1753,17 @@
     - added e-com favicon
     - installed dependent packages `npm i react-router-dom axios jwt-decode`
   - # 5.2 Project setup
+    - added .env in .gitignore
+    - in app.js imported BrowserRouter from react-router-dom
+      - wrapped Main component inside BrowserRouter component
+    - added API_BASE from env in src>utils>config.js
+    - created a Layout component to add custom title and structure
+    - added Home component src>home>Home.jsx
+    - updated Main component added Home to Routes(previously Switch)
+      - Switch is replaced with routes in react-router-dom 6
+      - and instead component we need to use element and element prop receive element
+      - ` <Routes> <Route path="/" element={<Home />} /> </Routes>`
+      - there is no exact, or exact is default, there is wildcard path="/\*"
   - # 5.3 Navigation menu
   - # 5.4 Login and register user part 1
   - # 5.5 Login and register user part 2
