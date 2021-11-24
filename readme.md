@@ -1765,6 +1765,12 @@
       - ` <Routes> <Route path="/" element={<Home />} /> </Routes>`
       - there is no exact, or exact is default, there is wildcard path="/\*"
   - # 5.3 Navigation menu
+    - inserted before menu file from tutorial
+    - imported and added Menu component in Layout component
+    - created Login and Register page in src>components>user
+    - created CustomLink component to have active and inactive style in Menu component
+      - ` let resolved = useResolvedPath(to); let style = useMatch({ path: resolved.pathname, end: true }) ? { color: "#f90" } : { color: "grey" };`
+      - used useResolvedPath and useMatch hooks to detect matched path or active path
   - # 5.4 Login and register user part 1
   - # 5.5 Login and register user part 2
   - # 5.6 Json web token
