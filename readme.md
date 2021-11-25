@@ -1777,6 +1777,10 @@
     - created api auth function login and register src>api>auth.js
     - created handleOnSubmit and handleOnChange in Register component src>user>Register.jsx
   - # 5.5 Login and register user part 2
+    - fixed async error handler in backend, to make the error parameter work we need to send 4 parameter `error,request,response,next`
+    - updated ShowMessage to ShowErrorMessage to ease the use
+    - implemented handleOnSubmit, show error message, loading and show success message in Register component
+    - same as Register but with login
   - # 5.6 Json web token
   - # 5.7 Sign out User
   - # 5.8 Private route

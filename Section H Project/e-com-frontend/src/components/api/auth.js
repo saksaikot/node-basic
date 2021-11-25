@@ -3,14 +3,14 @@ import { API_BASE } from "../../utils/config";
 
 const login = ({ email, password }) =>
   axios.post(
-    `${API_BASE}/user/signin`,
+    `${API_BASE}user/signin`,
     { email, password },
     { headers: { "Content-Type": "application/json" } }
   );
-const register = ({ email, password }) =>
+const register = ({ name, email, password }) =>
   axios.post(
-    `${API_BASE}/user/register`,
-    { email, password },
+    `${API_BASE}user/signup`,
+    { name, email, password },
     { headers: { "Content-Type": "application/json" } }
   );
 
