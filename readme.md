@@ -1773,6 +1773,9 @@
       - used useResolvedPath and useMatch hooks to detect matched path or active path
   - # 5.4 Login and register user part 1
     - imported before Login and Register component
+    - created ShowMessage and Loading component src>utils>messages.jsx
+    - created api auth function login and register src>api>auth.js
+    - created handleOnSubmit and handleOnChange in Register component src>user>Register.jsx
   - # 5.5 Login and register user part 2
   - # 5.6 Json web token
   - # 5.7 Sign out User
