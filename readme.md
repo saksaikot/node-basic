@@ -1785,6 +1785,8 @@
     - added auth.js in utils folder
     - implemented authenticate,isAuthenticate and userInfo and signout;
   - # 5.7 Sign out User
+    - added signout entry in menu with span
+    - used useNavigation hook to redirect to signin page when signout clicked
   - # 5.8 Private route
   - # 5.9 Admin Dashboard and route
 - # 6. React - Category and product

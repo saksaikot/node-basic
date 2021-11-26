@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Layout from "../Layout";
 import { login } from "../api/auth";
-import { Link } from "react-router-dom";
 import { ShowErrorMessage } from "../../utils/messages";
 import { Navigate } from "react-router-dom";
 import { authenticate } from "../../utils/auth";
