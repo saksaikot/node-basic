@@ -1744,6 +1744,7 @@
     - implemented get and create profile without validation
     - tested with postman
 - # 5. React - Routing and User Authentication
+
   - # 5.1 Loading the React app
     - created react app in section h "e-com-frontend"
     - `npx create-react-app e-com-frontend`
@@ -1791,9 +1792,15 @@
     - implemented a RequireAuth component
     - we can use this element when we want to protect authenticated page
     - it is simple higher order component `isAuthenticate() ? children : <Navigate to="/login" />;`
-  - # 5.9 Admin Dashboard and route
     - updated Dashboard component from tutorial, added dashboard to menu
     - from Login component successfully login redirect to dashboard
+  - # 5.9 Admin Dashboard and route
+    - added AdminDashboard as the tutorial, copied from user dashboard and changed it
+    - implemented RequireAdmin custom route
+    - in Main component added user and admin dashboard
+    - in menu created dashboard link dynamic from `userinfo().role`
+    - updated Login component, will Navigate to user/admin dashboard dynamically from `userinfo().role`
+
 - # 6. React - Category and product
   - # 6.1 Create category
   - # 6.2 Create product part 1

@@ -3,7 +3,7 @@ import Layout from "../Layout";
 import { login } from "../api/auth";
 import { ShowErrorMessage } from "../../utils/messages";
 import { Navigate } from "react-router-dom";
-import { authenticate } from "../../utils/auth";
+import { authenticate, userInfo } from "../../utils/auth";
 
 const initState = {
   name: "",
@@ -17,14 +17,14 @@ const Login = () => {
   const [values, setValues] = useState({ ...initState });
 
   const { email, password, success, error, loading } = values;
-  const SuccessMessage = () => (success ? <Navigate to="/dashboard" /> : null);
+  const SuccessMessage = () =>
+    success ? <Navigate to={`/${userInfo().role}/dashboard`} /> : null;
   const handleOnChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
-    console.log(values);
     const registerData = { email, password };
     setValues({ ...values, loading: true });
     login(registerData)

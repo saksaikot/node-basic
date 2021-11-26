@@ -1,10 +1,12 @@
 import React from "react";
-import { Redirect, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Dashboard from "./user/Dashboard";
 import Home from "./home/Home";
 import RequireAuth from "./RequireAuth";
 import Login from "./user/Login";
 import Register from "./user/Register";
+import RequireAdmin from "./RequireAdmin";
+import AdminDashboard from "./admin/AdminDashboard";
 
 export default function Main() {
   return (
@@ -14,13 +16,22 @@ export default function Main() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
-          path="/dashboard"
+          path="/user/dashboard"
           element={
             <RequireAuth>
               <Dashboard />
             </RequireAuth>
           }
         />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <RequireAdmin>
+              <AdminDashboard />
+            </RequireAdmin>
+          }
+        />
+        <Route path="/*" element={<Home />} />
       </Routes>
     </div>
   );

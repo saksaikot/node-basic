@@ -1,6 +1,6 @@
 import CustomLink from "./CustomLink";
 import { useNavigate } from "react-router-dom";
-import { isAuthenticate, signout } from "../utils/auth";
+import { isAuthenticate, signout, userInfo } from "../utils/auth";
 
 const Menu = () => {
   const navigate = useNavigate();
@@ -34,7 +34,10 @@ const Menu = () => {
         {isAuthenticate() && (
           <>
             <li className="nav-item">
-              <CustomLink className="nav-link" to="/dashboard">
+              <CustomLink
+                className="nav-link"
+                to={`/${userInfo().role}/dashboard`}
+              >
                 Dashboard
               </CustomLink>
             </li>
