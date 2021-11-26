@@ -1792,6 +1792,8 @@
     - we can use this element when we want to protect authenticated page
     - it is simple higher order component `isAuthenticate() ? children : <Navigate to="/login" />;`
   - # 5.9 Admin Dashboard and route
+    - updated Dashboard component from tutorial, added dashboard to menu
+    - from Login component successfully login redirect to dashboard
 - # 6. React - Category and product
   - # 6.1 Create category
   - # 6.2 Create product part 1

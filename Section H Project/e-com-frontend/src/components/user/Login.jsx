@@ -17,7 +17,7 @@ const Login = () => {
   const [values, setValues] = useState({ ...initState });
 
   const { email, password, success, error, loading } = values;
-  const SuccessMessage = () => (success ? <Navigate to="/" /> : null);
+  const SuccessMessage = () => (success ? <Navigate to="/dashboard" /> : null);
   const handleOnChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };

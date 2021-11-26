@@ -32,15 +32,22 @@ const Menu = () => {
           </>
         )}
         {isAuthenticate() && (
-          <li className="nav-item">
-            <span
-              className="nav-link"
-              onClick={handleLogout}
-              style={{ cursor: "pointer" }}
-            >
-              Logout
-            </span>
-          </li>
+          <>
+            <li className="nav-item">
+              <CustomLink className="nav-link" to="/dashboard">
+                Dashboard
+              </CustomLink>
+            </li>
+            <li className="nav-item">
+              <span
+                className="nav-link"
+                onClick={handleLogout}
+                style={{ cursor: "pointer" }}
+              >
+                Logout
+              </span>
+            </li>
+          </>
         )}
       </ul>
     </nav>
