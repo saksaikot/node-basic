@@ -1782,6 +1782,8 @@
     - implemented handleOnSubmit, show error message, loading and show success message in Register component
     - same as Register but with login
   - # 5.6 Json web token
+    - added auth.js in utils folder
+    - implemented authenticate,isAuthenticate and userInfo and signout;
   - # 5.7 Sign out User
   - # 5.8 Private route
   - # 5.9 Admin Dashboard and route

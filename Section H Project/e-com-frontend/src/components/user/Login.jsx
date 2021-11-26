@@ -4,6 +4,8 @@ import { login } from "../api/auth";
 import { Link } from "react-router-dom";
 import { ShowErrorMessage } from "../../utils/messages";
 import { Navigate } from "react-router-dom";
+import { authenticate } from "../../utils/auth";
+
 const initState = {
   name: "",
   email: "",
@@ -28,7 +30,11 @@ const Login = () => {
     setValues({ ...values, loading: true });
     login(registerData)
       .then((response) => {
-        setValues({ ...initState, success: true, loading: false });
+        if (response.data.token) {
+          authenticate(response.data.token, () => {
+            setValues({ ...initState, success: true, loading: false });
+          });
+        }
       })
       .catch((error) => {
         const errorMessage = error.response
