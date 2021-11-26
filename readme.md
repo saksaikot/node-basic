@@ -1788,6 +1788,9 @@
     - added signout entry in menu with span
     - used useNavigation hook to redirect to signin page when signout clicked
   - # 5.8 Private route
+    - implemented a RequireAuth component
+    - we can use this element when we want to protect authenticated page
+    - it is simple higher order component `isAuthenticate() ? children : <Navigate to="/login" />;`
   - # 5.9 Admin Dashboard and route
 - # 6. React - Category and product
   - # 6.1 Create category
