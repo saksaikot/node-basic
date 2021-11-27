@@ -4,12 +4,14 @@ import {
   ShowErrorMessage,
   ShowSuccessMessage,
 } from "../../utils/messages";
-import { getProducts } from "../api/admin";
+import { getProducts, getCategories } from "../api/admin";
 import Layout from "../Layout";
 import Card from "./Card";
+import HomeCategories from "./HomeCategories";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [error, setError] = useState(false);
   const [sortBy, setSortBy] = useState("createdAt");
   const [order, setOrder] = useState("desc");
@@ -28,6 +30,9 @@ export default function Home() {
         setLoading(false);
         setError("Product loading failed");
       });
+    getCategories()
+      .then((response) => setCategories(response.data))
+      .catch((error) => setError("Categories loading failed"));
   }, [sortBy, order, limit]);
 
   return (
@@ -40,6 +45,7 @@ export default function Home() {
         />
         {console.log(loading)}
         <Loading loading={loading} />
+        <HomeCategories categories={categories} />
       </div>
       <div className="row">
         {products &&

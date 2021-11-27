@@ -1839,6 +1839,9 @@
     - the finally is not asynchronous, so do not use it with try,catch block
     - added intensional .5 seconds delay in backend to visualize delay
   - # 6.6 Filter products by category part 1
+    - created HomeCategories component
+    - loaded category on document load in useEffect
+    - imported HomeCategories in Home component
   - # 6.7 Filter products by category part 2
   - # 6.8 Filter products by category part 3
   - # 6.9 Filter products by price
