@@ -7,6 +7,7 @@ import Login from "./user/Login";
 import Register from "./user/Register";
 import RequireAdmin from "./RequireAdmin";
 import AdminDashboard from "./admin/AdminDashboard";
+import CreateCategory from "./admin/CreateCategory";
 
 export default function Main() {
   return (
@@ -28,6 +29,14 @@ export default function Main() {
           element={
             <RequireAdmin>
               <AdminDashboard />
+            </RequireAdmin>
+          }
+        />
+        <Route
+          path="/admin/create/category"
+          element={
+            <RequireAdmin>
+              <CreateCategory />
             </RequireAdmin>
           }
         />

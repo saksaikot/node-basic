@@ -1802,7 +1802,17 @@
     - updated Login component, will Navigate to user/admin dashboard dynamically from `userinfo().role`
 
 - # 6. React - Category and product
+
   - # 6.1 Create category
+
+    - imported CreateCategory from tutorial
+    - implemented ShowSuccessMessage
+    - changed code to use ShowSuccessMessage and ShowErrorMessage
+    - added loading state and Loading component
+    - added `/admin/create/category` inside RequireAdmin
+    - link updated in AdminDashboard
+    - commit before
+
   - # 6.2 Create product part 1
   - # 6.3 Create product part 2
   - # 6.4 Product details
@@ -1811,6 +1821,7 @@
   - # 6.7 Filter products by category part 2
   - # 6.8 Filter products by category part 3
   - # 6.9 Filter products by price
+
 - # 7. React - Product cart and checkout page
   - # 7.1 Add product to cart
   - # 7.2 Showing product in cart
