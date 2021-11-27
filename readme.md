@@ -1817,6 +1817,7 @@
     - implemented handleOnSubmit and handleOnChange
 
   - # 6.2 Create product part 1
+    - added CreateProduct from tutorial material
   - # 6.3 Create product part 2
   - # 6.4 Product details
   - # 6.5 Show products in home page
