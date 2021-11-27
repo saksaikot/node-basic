@@ -1823,6 +1823,9 @@
     - in admin api refactored functions and added createProduct and getCategories
     - in CreateProduct component implemented dynamic category list generation
   - # 6.3 Create product part 2
+    - implemented handleOnSubmit
+    - api>admin fixed createProduct uri
+      - improved axiosAdminPost to accept contentType, default `application/json`
   - # 6.4 Product details
   - # 6.5 Show products in home page
   - # 6.6 Filter products by category part 1

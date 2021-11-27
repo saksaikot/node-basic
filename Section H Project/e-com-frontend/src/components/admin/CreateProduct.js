@@ -8,14 +8,17 @@ import {
 } from "../../utils/messages";
 import { createProduct, getCategories } from "../api/admin";
 
+const INIT_STATE = {
+  name: "",
+  description: "",
+  price: "",
+  category: "",
+  quantity: "",
+};
 const CreateProduct = () => {
   const [values, setValues] = useState({
-    name: "",
-    description: "",
-    price: "",
-    category: "",
+    ...INIT_STATE,
     categories: [],
-    quantity: "",
     loading: false,
     error: false,
     success: false,
@@ -54,10 +57,43 @@ const CreateProduct = () => {
         });
       });
   }, []);
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    let { name, value } = e.target;
+    if (name === "photo") value = e.target.files[0];
+    formData.set(name, value);
+    setValues({
+      ...values,
+      [name]: value,
+      error: false,
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setValues({
+      ...values,
+      loading: true,
+    });
+    createProduct(formData)
+      .then((response) => {
+        setValues({
+          ...values,
+          ...INIT_STATE,
+          loading: false,
+          success: true,
+        });
+      })
+      .catch((error) => {
+        const errorMessage = error.response
+          ? error.response.data
+          : "Something went wrong, error was: " + error.message;
+        setValues({
+          ...values,
+          loading: false,
+          success: false,
+          error: errorMessage,
+        });
+      });
   };
 
   const productForm = () => (
