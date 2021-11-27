@@ -1832,6 +1832,12 @@
         - replaced ShowErrorMessage and others
         - used useParams hook to get the params id
   - # 6.5 Show products in home page
+    - this should be 6.4
+    - added Card component in Home and updated variable and component
+    - implemented Home component
+    - added getProducts method in admin api
+    - the finally is not asynchronous, so do not use it with try,catch block
+    - added intensional .5 seconds delay in backend to visualize delay
   - # 6.6 Filter products by category part 1
   - # 6.7 Filter products by category part 2
   - # 6.8 Filter products by category part 3

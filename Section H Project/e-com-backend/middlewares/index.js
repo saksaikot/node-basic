@@ -7,5 +7,8 @@ module.exports = (app) => {
   app.use(cors());
   if (process.env.NODE_ENV === "development") {
     app.use(morgan("dev"));
+    app.use(function (req, res, next) {
+      setTimeout(next, 500);
+    });
   }
 };

@@ -18,5 +18,6 @@ export const createProduct = (data) =>
   axiosAdminPost(`${API_BASE}product`, data);
 
 export const getCategories = () => axiosGet(`${API_BASE}category`);
-export const getProducts = () => axiosGet(`${API_BASE}product`);
+export const getProducts = ({ sortBy, order, limit }) =>
+  axiosGet(`${API_BASE}product?sortBy=${sortBy}&order=${order}&limit=${limit}`);
 export const getProduct = (id) => axiosGet(`${API_BASE}product/${id}`);
