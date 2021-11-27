@@ -18,3 +18,5 @@ export const createProduct = (data) =>
   axiosAdminPost(`${API_BASE}product`, data);
 
 export const getCategories = () => axiosGet(`${API_BASE}category`);
+export const getProducts = () => axiosGet(`${API_BASE}product`);
+export const getProduct = (id) => axiosGet(`${API_BASE}product/${id}`);

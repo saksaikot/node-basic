@@ -1827,6 +1827,10 @@
     - api>admin fixed createProduct uri
       - improved axiosAdminPost to accept contentType, default `application/json`
   - # 6.4 Product details
+        - added `<Route path="/product/:id" element={<ProductDetails />} /> ` to Main component
+        - added ProductDetails in home folder
+        - replaced ShowErrorMessage and others
+        - used useParams hook to get the params id
   - # 6.5 Show products in home page
   - # 6.6 Filter products by category part 1
   - # 6.7 Filter products by category part 2

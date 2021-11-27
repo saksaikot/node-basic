@@ -9,6 +9,7 @@ import RequireAdmin from "./RequireAdmin";
 import AdminDashboard from "./admin/AdminDashboard";
 import CreateCategory from "./admin/CreateCategory";
 import CreateProduct from "./admin/CreateProduct";
+import ProductDetails from "./home/ProductDetails";
 
 export default function Main() {
   return (
@@ -17,6 +18,7 @@ export default function Main() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
         <Route
           path="/user/dashboard"
           element={
