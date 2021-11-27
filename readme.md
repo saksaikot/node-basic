@@ -1845,6 +1845,9 @@
   - # 6.7 Filter products by category part 2
     - implemented checkbox click function
   - # 6.8 Filter products by category part 3
+
+    - implemented product filter,easier logic
+
   - # 6.9 Filter products by price
 
 - # 7. React - Product cart and checkout page
