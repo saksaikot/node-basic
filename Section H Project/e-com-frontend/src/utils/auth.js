@@ -14,7 +14,7 @@ const getJwt = () => {
 
 export const authenticate = (token, cb) => {
   if (isWindow) {
-    localStorage.setItem("jwt", JSON.stringify(token));
+    localStorage.setItem("jwt", token);
     cb();
   }
 };
@@ -26,7 +26,7 @@ export const isAuthenticate = () => {
 
 export const userInfo = () => {
   const jwt = getJwt();
-  return { ...jwt, token: JSON.stringify(jwt) };
+  return { ...jwt, token: localStorage.getItem("jwt") };
 };
 
 export const signout = (cb) => {

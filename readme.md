@@ -1812,6 +1812,9 @@
     - added `/admin/create/category` inside RequireAdmin
     - link updated in AdminDashboard
     - commit before
+    - fixed backend admin middleware changed `bearer` to `Bearer`
+    - fixed auth save token and get token
+    - implemented handleOnSubmit and handleOnChange
 
   - # 6.2 Create product part 1
   - # 6.3 Create product part 2

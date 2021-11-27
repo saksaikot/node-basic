@@ -4,7 +4,7 @@ module.exports = async function (req, res, next) {
   const tokenHeader = req.header("Authorization");
   let token;
   if (tokenHeader) {
-    const tokenMatch = tokenHeader.trim().match(/bearer ([^\s]+)/);
+    const tokenMatch = tokenHeader.trim().match(/Bearer ([^\s]+)/);
     if (tokenMatch) token = tokenMatch[1];
   }
   if (!token) return res.status(401).send("Access denied! no token provided");

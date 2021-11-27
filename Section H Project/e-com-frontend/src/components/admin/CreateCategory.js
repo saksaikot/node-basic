@@ -6,7 +6,7 @@ import {
   Loading,
 } from "../../utils/messages";
 import { Link } from "react-router-dom";
-
+import { createCategory } from "../api/admin";
 const CreateCategory = () => {
   const [values, setValues] = useState({
     name: "",
@@ -19,12 +19,29 @@ const CreateCategory = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setValues({ ...values, loading: true });
+    createCategory(name)
+      .then((response) => {
+        setValues({ ...values, name: "", loading: false, success: true });
+      })
+      .catch((error) => {
+        const errorMessage = error.response
+          ? error.response.data
+          : "Something went wrong, error was: " + error.message;
+        setValues({
+          ...values,
+          loading: false,
+          success: false,
+          error: errorMessage,
+        });
+      });
   };
 
   const handleChange = (e) => {
     setValues({
       ...values,
       [e.target.name]: e.target.value,
+      error: false,
     });
   };
 
