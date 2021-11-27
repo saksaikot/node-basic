@@ -1843,6 +1843,7 @@
     - loaded category on document load in useEffect
     - imported HomeCategories in Home component
   - # 6.7 Filter products by category part 2
+    - implemented checkbox click function
   - # 6.8 Filter products by category part 3
   - # 6.9 Filter products by price
 
