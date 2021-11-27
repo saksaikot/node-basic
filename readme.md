@@ -1818,6 +1818,10 @@
 
   - # 6.2 Create product part 1
     - added CreateProduct from tutorial material
+    - added CreateProduct to Route in Main component
+    - updated create product link in CreateProduct component
+    - in admin api refactored functions and added createProduct and getCategories
+    - in CreateProduct component implemented dynamic category list generation
   - # 6.3 Create product part 2
   - # 6.4 Product details
   - # 6.5 Show products in home page
