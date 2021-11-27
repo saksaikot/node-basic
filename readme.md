@@ -1849,6 +1849,9 @@
     - implemented product filter,easier logic
 
   - # 6.9 Filter products by price
+    - implemented PriceFilter component
+    - implemented filter by price
+    - fixed issue with none selected in category
 
 - # 7. React - Product cart and checkout page
   - # 7.1 Add product to cart

@@ -8,6 +8,7 @@ import { getProducts, getCategories, getFilteredProducts } from "../api/admin";
 import Layout from "../Layout";
 import Card from "./Card";
 import HomeCategories from "./HomeCategories";
+import PriceFilter from "./PriceFilter";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -52,6 +53,19 @@ export default function Home() {
   const handleCategorySelect = (selectedCategory) => {
     if (selectedCategory.length > 0)
       setFilter({ ...filter, in: { category: selectedCategory } });
+    else {
+      const newFilter = { ...filter };
+      delete newFilter.in.category;
+      setFilter({ newFilter });
+    }
+  };
+  const handlePriceSelect = (range) => {
+    if (range.length === 2) setFilter({ ...filter, range: { price: range } });
+    else {
+      const newFilter = { ...filter };
+      delete newFilter.range.price;
+      setFilter({ newFilter });
+    }
   };
 
   return (
@@ -63,10 +77,18 @@ export default function Home() {
           message="Added to cart successfully!"
         />
         <Loading loading={loading} />
-        <HomeCategories
-          categories={categories}
-          handleCategorySelect={handleCategorySelect}
-        />
+        <div className="row">
+          <div className="col-sm-3">
+            <HomeCategories
+              categories={categories}
+              handleCategorySelect={handleCategorySelect}
+            />
+          </div>
+
+          <div className="col-sm-5">
+            <PriceFilter handlePriceSelect={handlePriceSelect} />
+          </div>
+        </div>
       </div>
       <div className="row">
         {products &&
