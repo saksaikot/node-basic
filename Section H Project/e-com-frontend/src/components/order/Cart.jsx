@@ -1,18 +1,37 @@
 import Layout from "../Layout";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getCart } from "../api/admin";
+import { deleteCart, getCart, updateCart } from "../api/admin";
 import CartItem from "./CartItem";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
-  console.log(cartItems);
-  useEffect(() => {
+  const loadCartItems = () => {
     getCart()
       .then((response) => setCartItems(response.data.data))
       .catch((er) => console.log(er));
+  };
+  useEffect(() => {
+    loadCartItems();
   }, []);
-
+  const totalPrice = () => {
+    if (cartItems.length < 1) {
+      return 0;
+    } else {
+      return cartItems.reduce((pre, cur) => cur.count * cur.price + pre, 0);
+    }
+  };
+  const handleIncreaseDecrease = (_id, count) => {
+    if (count > 0 && count < 6)
+      updateCart({ _id, count })
+        .then((response) => loadCartItems())
+        .catch((err) => console.log(err));
+  };
+  const handleDeleteCart = (id) => {
+    deleteCart(id)
+      .then((response) => loadCartItems())
+      .catch((err) => console.log(err));
+  };
   return (
     <Layout
       title="Your Cart"
@@ -47,17 +66,25 @@ const Cart = () => {
           </thead>
           <tbody>
             {cartItems.map((cartItem, index) => (
-              <CartItem key={index} {...{ cartItem, index }} />
+              <CartItem
+                key={index}
+                {...{
+                  cartItem,
+                  index,
+                  handleIncreaseDecrease,
+                  handleDeleteCart,
+                }}
+              />
             ))}
             <tr>
               <th scope="row" />
-              <td colSpan={2}>Total</td>
-              <td align="right">৳ </td>
+              <td colSpan={3}>Total</td>
+              <td align="right">৳{totalPrice()} </td>
               <td />
             </tr>
             <tr>
               <th scope="row" />
-              <td colSpan={4} className="text-right">
+              <td colSpan={5} className="text-right">
                 <Link to="/">
                   <button className="btn btn-warning mr-4">
                     Continue Shoping

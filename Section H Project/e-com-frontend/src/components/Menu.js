@@ -42,6 +42,11 @@ const Menu = () => {
               </CustomLink>
             </li>
             <li className="nav-item">
+              <CustomLink className="nav-link" to="/cart">
+                Cart
+              </CustomLink>
+            </li>
+            <li className="nav-item">
               <span
                 className="nav-link"
                 onClick={handleLogout}

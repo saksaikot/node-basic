@@ -1,7 +1,12 @@
 import React from "react";
 import { API_BASE } from "../../utils/config";
 
-const CartItem = ({ cartItem, index }) => {
+const CartItem = ({
+  cartItem,
+  index,
+  handleIncreaseDecrease,
+  handleDeleteCart,
+}) => {
   return (
     <tr>
       <th scope="row">{index + 1}</th>
@@ -9,17 +14,38 @@ const CartItem = ({ cartItem, index }) => {
         <img
           src={`${API_BASE}product/photo/${cartItem.product._id}`}
           alt={cartItem.product.name}
+          width="40px"
         />
       </th>
       <td>{cartItem.product.name}</td>
       <td>
-        <button className="btn btn-outline-primary btn-sm">-</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <button className="btn btn-outline-primary btn-sm">+</button>
+        <button
+          className="btn btn-outline-primary btn-sm"
+          onClick={() =>
+            handleIncreaseDecrease(cartItem._id, cartItem.count - 1)
+          }
+        >
+          -
+        </button>
+        &nbsp;&nbsp;
+        {cartItem.count}&nbsp;&nbsp;
+        <button
+          className="btn btn-outline-primary btn-sm"
+          onClick={() =>
+            handleIncreaseDecrease(cartItem._id, cartItem.count + 1)
+          }
+        >
+          +
+        </button>
       </td>
-      <td align="right">৳ </td>
+      <td align="right">৳ {cartItem.count * cartItem.price}</td>
       <td>
-        <button className="btn btn-danger btn-sm">Remove From Cart</button>
+        <button
+          className="btn btn-danger btn-sm"
+          onClick={() => handleDeleteCart(cartItem._id)}
+        >
+          Remove From Cart
+        </button>
       </td>
     </tr>
   );

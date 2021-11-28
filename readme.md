@@ -1864,6 +1864,8 @@
     - need to `response.data.data` because api send the data with message and data`{message,data}`
     - added to Main component
   - # 7.3 Increase, decrease and remove cart item
+    - added update cart and remove cart
+    - added cart to menu for authorize user
   - # 7.4 Saving shipping address
   - # 7.5 Checkout page
 - # 8. Payment Gateway (SSLCommerz)

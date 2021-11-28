@@ -15,6 +15,20 @@ const axiosUserGet = (uri) =>
       Authorization: `Bearer ${userInfo().token}`,
     },
   });
+const axiosUserDelete = (uri) =>
+  axios.delete(uri, {
+    headers: {
+      Authorization: `Bearer ${userInfo().token}`,
+    },
+  });
+const axiosAdminPut = (uri, data, contentType = "application/json") =>
+  axios.put(uri, data, {
+    headers: {
+      "Content-Type": contentType,
+      Authorization: `Bearer ${userInfo().token}`,
+    },
+  });
+
 const axiosPost = (uri, data, contentType = "application/json") =>
   axios.post(uri, data, {
     headers: {
@@ -62,3 +76,9 @@ export const getFilteredProducts = ({ sortBy, order, limit, skip, filter }) =>
 export const createCart = ({ product, price }) =>
   axiosAdminPost(`${API_BASE}cart`, { user: userInfo()._id, product, price });
 export const getCart = () => axiosUserGet(`${API_BASE}cart`);
+
+export const updateCart = ({ _id, count }) => {
+  return axiosAdminPut(`${API_BASE}cart/${_id}`, { count });
+};
+
+export const deleteCart = (id) => axiosUserDelete(`${API_BASE}cart/${id}`);
