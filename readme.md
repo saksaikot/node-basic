@@ -1870,6 +1870,9 @@
     - imported template from tutorial
     - added to Main private component
     - updated Proceed To Checkout link
+    - fixed profile controller, used FindOne
+    - implemented profile load and update
+    - temporary redirect or new react-router-dom 6 useNavigate
   - # 7.5 Checkout page
 - # 8. Payment Gateway (SSLCommerz)
   - # 8.1 Sslcommerz sandbox

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../Layout";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getProfile, updateProfile } from "../api/admin";
 
 const ShippingAddress = () => {
   const [values, setValues] = useState({
@@ -10,17 +11,37 @@ const ShippingAddress = () => {
     city: "",
     postcode: "",
     country: "",
+    state: "",
   });
   const [disabled, setDisabled] = useState(false);
-  const [redirect, setRedirect] = useState(false);
+  //   const [redirect, setRedirect] = useState(false);
 
   const { phone, address1, address2, city, postcode, country } = values;
+  const navigate = useNavigate();
+  useEffect(() => {
+    getProfile()
+      .then((response) => setValues({ ...values, ...response.data }))
+      .catch((err) => console.log(err));
+  }, []);
 
-  useEffect(() => {}, []);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
+  };
 
-  const handleChange = (e) => {};
-
-  const handleSubmit = (e) => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setDisabled(true);
+    updateProfile(values)
+      .then((response) => {
+        setDisabled(false);
+        navigate("/cart");
+      })
+      .catch((err) => {
+        setDisabled(false);
+        console.log(err.response ? err.response : err.message);
+      });
+  };
 
   const profileForm = () => (
     <form onSubmit={handleSubmit}>
