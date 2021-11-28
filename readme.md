@@ -1859,6 +1859,7 @@
     - implemented handleCart and use same function in home and product details
     - should be use in hook and central function
   - # 7.2 Showing product in cart
+    - imported Cart and CartItem component from tutorial
   - # 7.3 Increase, decrease and remove cart item
   - # 7.4 Saving shipping address
   - # 7.5 Checkout page
