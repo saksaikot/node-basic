@@ -35,7 +35,7 @@ const ShippingAddress = () => {
     updateProfile(values)
       .then((response) => {
         setDisabled(false);
-        navigate("/cart");
+        navigate("/checkout");
       })
       .catch((err) => {
         setDisabled(false);

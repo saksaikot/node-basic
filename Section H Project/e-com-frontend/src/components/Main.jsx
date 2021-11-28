@@ -12,6 +12,7 @@ import CreateProduct from "./admin/CreateProduct";
 import ProductDetails from "./home/ProductDetails";
 import Cart from "./order/Cart";
 import ShippingAddress from "./order/ShippingAddress";
+import Checkout from "./order/Checkout";
 
 export default function Main() {
   return (
@@ -34,6 +35,14 @@ export default function Main() {
           element={
             <RequireAuth>
               <Cart />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <RequireAuth>
+              <Checkout />
             </RequireAuth>
           }
         />

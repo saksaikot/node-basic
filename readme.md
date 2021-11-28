@@ -1874,6 +1874,10 @@
     - implemented profile load and update
     - temporary redirect or new react-router-dom 6 useNavigate
   - # 7.5 Checkout page
+    - imported Checkout component from tutorial
+    - updated shipping address save and continue to checkout
+    - updated Main component
+    - fixed issue with imported Checkout page
 - # 8. Payment Gateway (SSLCommerz)
   - # 8.1 Sslcommerz sandbox
   - # 8.2 Initiate payment session
