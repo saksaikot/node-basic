@@ -1,7 +1,18 @@
 import Layout from "../Layout";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getCart } from "../api/admin";
+import CartItem from "./CartItem";
 
 const Cart = () => {
+  const [cartItems, setCartItems] = useState([]);
+  console.log(cartItems);
+  useEffect(() => {
+    getCart()
+      .then((response) => setCartItems(response.data.data))
+      .catch((er) => console.log(er));
+  }, []);
+
   return (
     <Layout
       title="Your Cart"
@@ -9,11 +20,11 @@ const Cart = () => {
       className="container"
     >
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item">
             <a href="#">Order</a>
           </li>
-          <li class="breadcrumb-item active" aria-current="page">
+          <li className="breadcrumb-item active" aria-current="page">
             Cart
           </li>
         </ol>
@@ -35,6 +46,9 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
+            {cartItems.map((cartItem, index) => (
+              <CartItem key={index} {...{ cartItem, index }} />
+            ))}
             <tr>
               <th scope="row" />
               <td colSpan={2}>Total</td>

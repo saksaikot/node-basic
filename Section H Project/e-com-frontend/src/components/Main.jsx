@@ -10,6 +10,7 @@ import AdminDashboard from "./admin/AdminDashboard";
 import CreateCategory from "./admin/CreateCategory";
 import CreateProduct from "./admin/CreateProduct";
 import ProductDetails from "./home/ProductDetails";
+import Cart from "./order/Cart";
 
 export default function Main() {
   return (
@@ -24,6 +25,14 @@ export default function Main() {
           element={
             <RequireAuth>
               <Dashboard />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <RequireAuth>
+              <Cart />
             </RequireAuth>
           }
         />

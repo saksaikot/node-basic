@@ -1860,6 +1860,9 @@
     - should be use in hook and central function
   - # 7.2 Showing product in cart
     - imported Cart and CartItem component from tutorial
+    - loaded user cart from api
+    - need to `response.data.data` because api send the data with message and data`{message,data}`
+    - added to Main component
   - # 7.3 Increase, decrease and remove cart item
   - # 7.4 Saving shipping address
   - # 7.5 Checkout page

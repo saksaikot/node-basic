@@ -9,6 +9,12 @@ const axiosAdminPost = (uri, data, contentType = "application/json") =>
       Authorization: `Bearer ${userInfo().token}`,
     },
   });
+const axiosUserGet = (uri) =>
+  axios.get(uri, {
+    headers: {
+      Authorization: `Bearer ${userInfo().token}`,
+    },
+  });
 const axiosPost = (uri, data, contentType = "application/json") =>
   axios.post(uri, data, {
     headers: {
@@ -55,3 +61,4 @@ export const getFilteredProducts = ({ sortBy, order, limit, skip, filter }) =>
 
 export const createCart = ({ product, price }) =>
   axiosAdminPost(`${API_BASE}cart`, { user: userInfo()._id, product, price });
+export const getCart = () => axiosUserGet(`${API_BASE}cart`);
