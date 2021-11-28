@@ -87,10 +87,10 @@ const Cart = () => {
               <td colSpan={5} className="text-right">
                 <Link to="/">
                   <button className="btn btn-warning mr-4">
-                    Continue Shoping
+                    Continue Shopping
                   </button>
                 </Link>
-                <Link to="/checkout" className="btn btn-success mr-4">
+                <Link to="/shipping-address" className="btn btn-success mr-4">
                   Proceed To Checkout
                 </Link>
               </td>

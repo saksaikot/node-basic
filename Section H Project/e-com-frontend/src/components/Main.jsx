@@ -11,6 +11,7 @@ import CreateCategory from "./admin/CreateCategory";
 import CreateProduct from "./admin/CreateProduct";
 import ProductDetails from "./home/ProductDetails";
 import Cart from "./order/Cart";
+import ShippingAddress from "./order/ShippingAddress";
 
 export default function Main() {
   return (
@@ -33,6 +34,14 @@ export default function Main() {
           element={
             <RequireAuth>
               <Cart />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/shipping-address"
+          element={
+            <RequireAuth>
+              <ShippingAddress />
             </RequireAuth>
           }
         />

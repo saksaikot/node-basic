@@ -1867,6 +1867,9 @@
     - added update cart and remove cart
     - added cart to menu for authorize user
   - # 7.4 Saving shipping address
+    - imported template from tutorial
+    - added to Main private component
+    - updated Proceed To Checkout link
   - # 7.5 Checkout page
 - # 8. Payment Gateway (SSLCommerz)
   - # 8.1 Sslcommerz sandbox
