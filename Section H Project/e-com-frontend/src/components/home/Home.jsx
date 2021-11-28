@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { isAuthenticate } from "../../utils/auth";
 import {
   Loading,
   ShowErrorMessage,
   ShowSuccessMessage,
 } from "../../utils/messages";
-import { getProducts, getCategories, getFilteredProducts } from "../api/admin";
+import {
+  getProducts,
+  getCategories,
+  getFilteredProducts,
+  createCart,
+} from "../api/admin";
 import Layout from "../Layout";
 import Card from "./Card";
 import HomeCategories from "./HomeCategories";
@@ -55,17 +61,35 @@ export default function Home() {
       setFilter({ ...filter, in: { category: selectedCategory } });
     else {
       const newFilter = { ...filter };
-      delete newFilter.in.category;
-      setFilter({ newFilter });
+
+      try {
+        delete newFilter.in.category;
+        setFilter({ newFilter });
+      } catch (er) {}
     }
   };
   const handlePriceSelect = (range) => {
     if (range.length === 2) setFilter({ ...filter, range: { price: range } });
     else {
       const newFilter = { ...filter };
-      delete newFilter.range.price;
-      setFilter({ newFilter });
+      try {
+        delete newFilter.range.price;
+        setFilter({ newFilter });
+      } catch (er) {}
     }
+  };
+  const handleCart = (product) => {
+    if (!isAuthenticate()) return setError("Please login to add items to cart");
+    setError(false);
+    setSuccess(false);
+    createCart({ product: product._id, price: product.price })
+      .then((response) => setSuccess(true))
+      .catch((error) => {
+        const errorMessage = error.response
+          ? error.response.data
+          : "Something went wrong, error was: " + error.message;
+        setError(errorMessage);
+      });
   };
 
   return (
@@ -93,7 +117,7 @@ export default function Home() {
       <div className="row">
         {products &&
           products.map((product) => (
-            <Card key={product._id} product={product} />
+            <Card key={product._id} product={product} handleCart={handleCart} />
           ))}
       </div>
     </Layout>

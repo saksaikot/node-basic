@@ -1855,6 +1855,9 @@
 
 - # 7. React - Product cart and checkout page
   - # 7.1 Add product to cart
+    - added createCart function in admin api
+    - implemented handleCart and use same function in home and product details
+    - should be use in hook and central function
   - # 7.2 Showing product in cart
   - # 7.3 Increase, decrease and remove cart item
   - # 7.4 Saving shipping address

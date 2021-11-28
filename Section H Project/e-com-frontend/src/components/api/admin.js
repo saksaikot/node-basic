@@ -52,3 +52,6 @@ export const getFilteredProducts = ({ sortBy, order, limit, skip, filter }) =>
     skip,
     filter,
   });
+
+export const createCart = ({ product, price }) =>
+  axiosAdminPost(`${API_BASE}cart`, { user: userInfo()._id, product, price });

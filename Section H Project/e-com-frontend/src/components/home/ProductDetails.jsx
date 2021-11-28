@@ -6,9 +6,10 @@ import {
   ShowSuccessMessage,
   Loading,
 } from "../../utils/messages";
-import { getProduct } from "../api/admin";
+import { createCart, getProduct } from "../api/admin";
 import { API_BASE as API } from "../../utils/config";
 import { useParams } from "react-router-dom";
+import { isAuthenticate } from "../../utils/auth";
 export default function ProductDetails(props) {
   const [product, setProduct] = useState({});
   const [error, setError] = useState(false);
@@ -32,6 +33,19 @@ export default function ProductDetails(props) {
         setSuccess(false);
       });
   }, []);
+  const handleCart = (product) => {
+    if (!isAuthenticate()) return setError("Please login to add items to cart");
+    setError(false);
+    setSuccess(false);
+    createCart({ product: product._id, price: product.price })
+      .then((response) => setSuccess(true))
+      .catch((error) => {
+        const errorMessage = error.response
+          ? error.response.data
+          : "Something went wrong, error was: " + error.message;
+        setError(errorMessage);
+      });
+  };
   return (
     <Layout title="Product Page">
       <nav aria-label="breadcrumb">
@@ -75,7 +89,10 @@ export default function ProductDetails(props) {
           {product.quantity ? (
             <>
               &nbsp;
-              <button className="btn btn-outline-primary btn-md">
+              <button
+                className="btn btn-outline-primary btn-md"
+                onClick={() => handleCart(product)}
+              >
                 Add to Cart
               </button>
             </>
