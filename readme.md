@@ -1895,6 +1895,11 @@
     - ![how api works](https://developer.sslcommerz.com/doc/v4/assets/images/sslc_process.png)
 
   - # 8.3 Initiate payment session in Node
+    - init npm in sslcommerz-test folder
+    - used npm package sslcommerz-lts
+    - used their sample initiate code
+    - used "body-parser" to receive form-data submission form ssl commerz
+    - added functionality to accept data from ssl commerz
   - # 8.4 Node - payment controller part 1
   - # 8.5 Node - payment controller part 2
   - # 8.6 React - payment component
