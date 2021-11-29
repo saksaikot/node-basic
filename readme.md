@@ -1879,8 +1879,21 @@
     - updated Main component
     - fixed issue with imported Checkout page
 - # 8. Payment Gateway (SSLCommerz)
+
   - # 8.1 Sslcommerz sandbox
+
+    - register here for sandbox account https://developer.sslcommerz.com/
+    - sandbox is same as real but without real payment
+    - signup with real email and other fields can be fake
+
   - # 8.2 Initiate payment session
+
+    - sandbox login url https://sandbox.sslcommerz.com/manage
+    - store_id and secret_key will be provided to registered email
+    - documentation url https://developer.sslcommerz.com/doc/v4/
+    - node github url : https://github.com/sslcommerz/SSLCommerz-NodeJS
+    - ![how api works](https://developer.sslcommerz.com/doc/v4/assets/images/sslc_process.png)
+
   - # 8.3 Initiate payment session in Node
   - # 8.4 Node - payment controller part 1
   - # 8.5 Node - payment controller part 2
@@ -1890,6 +1903,7 @@
   - # 8.9 Node - order and payment model
   - # 8.10 Node - ipn controller
   - # 8.11 Node - Success message
+
 - # 9. Assignment
   - # 9.1 Assignment overview
 
