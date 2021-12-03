@@ -1906,6 +1906,9 @@
     - imported user cartsItem
     - calculated total price
   - # 8.5 Node - payment controller part 2
+    - imported profile
+    - given required data to data variable
+    - created function to add `setCustomerInfo` `setShippingInfo` `setItemInfo`
   - # 8.6 React - payment component
   - # 8.7 node - instant payment notification
   - # 8.8 Node - accept response in ipn url
