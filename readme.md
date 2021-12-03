@@ -1910,6 +1910,10 @@
     - given required data to data variable
     - created function to add `setCustomerInfo` `setShippingInfo` `setItemInfo`
   - # 8.6 React - payment component
+    - created payment component in order
+    - initiate payment api
+    - redirected to gateway url
+    - fixed some bugs in payment controller in backend
   - # 8.7 node - instant payment notification
   - # 8.8 Node - accept response in ipn url
   - # 8.9 Node - order and payment model

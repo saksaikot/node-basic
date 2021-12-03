@@ -13,6 +13,7 @@ import ProductDetails from "./home/ProductDetails";
 import Cart from "./order/Cart";
 import ShippingAddress from "./order/ShippingAddress";
 import Checkout from "./order/Checkout";
+import Payment from "./order/Payment";
 
 export default function Main() {
   return (
@@ -43,6 +44,14 @@ export default function Main() {
           element={
             <RequireAuth>
               <Checkout />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/payment"
+          element={
+            <RequireAuth>
+              <Payment />
             </RequireAuth>
           }
         />

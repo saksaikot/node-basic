@@ -86,3 +86,4 @@ export const deleteCart = (id) => axiosUserDelete(`${API_BASE}cart/${id}`);
 export const getProfile = () => axiosUserGet(`${API_BASE}profile`);
 export const updateProfile = (data) =>
   axiosAdminPost(`${API_BASE}profile`, data);
+export const initPayment = () => axiosUserGet(`${API_BASE}payment/init`);
