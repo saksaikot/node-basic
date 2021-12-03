@@ -1901,6 +1901,10 @@
     - used "body-parser" to receive form-data submission form ssl commerz
     - added functionality to accept data from ssl commerz
   - # 8.4 Node - payment controller part 1
+    - added payment to controller and routes
+    - implementing payment init
+    - imported user cartsItem
+    - calculated total price
   - # 8.5 Node - payment controller part 2
   - # 8.6 React - payment component
   - # 8.7 node - instant payment notification

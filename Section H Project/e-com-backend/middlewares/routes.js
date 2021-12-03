@@ -4,4 +4,5 @@ module.exports = (app) => {
   app.use("/api/product", require("../routers/product"));
   app.use("/api/cart", require("../routers/cartItem"));
   app.use("/api/profile", require("../routers/profile"));
+  app.use("/api/payment", require("../routers/payment"));
 };

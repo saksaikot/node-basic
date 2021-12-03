@@ -1,20 +1,17 @@
-const express = require("express");
-require("dotenv").config();
-const bodyParser = require("body-parser");
 const SSLCommerzPayment = require("sslcommerz-lts");
-
-const app = express();
-
-app.use(bodyParser.urlencoded({ extended: true }));
-const SSLCommerzPayment = require("sslcommerz-lts");
+const { CartItem } = require("../models/cartItem");
 const store_id = process.env.STORE_ID;
 const store_passwd = process.env.STORE_PASSWORD;
-const is_live = false; //true for live, false for sandbox
-
-const port = 3030;
+const is_live = false;
 const siteUrl = (path) => `http://localhost:${port}/${path}`;
-//sslcommerz init
-app.get("/init", (req, res) => {
+
+const paymentInit = async (req, res) => {
+  const userId = req.user._id;
+  const cartItems = await CartItem.find({ user: userId });
+  const total_amount = cartItems.reduce(
+    (pre, cur) => pre + cur.item.count * cur.item.price,
+    0
+  );
   const data = {
     total_amount: 100,
     currency: "BDT",
@@ -45,6 +42,7 @@ app.get("/init", (req, res) => {
     ship_postcode: 1000,
     ship_country: "Bangladesh",
   };
+
   const sslcz = new SSLCommerzPayment(store_id, store_passwd, is_live);
   sslcz
     .init(data)
@@ -60,10 +58,6 @@ app.get("/init", (req, res) => {
       const errorMessage = error.response ? error.response : error.message;
       console.log(errorMessage);
     });
-});
+};
 
-app.post("/*", (req, res) => res.json(req.body));
-
-app.listen(port, () => {
-  console.log(`You can init the transaction http://localhost:${port}/init`);
-});
+module.exports = { paymentInit };
