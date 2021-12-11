@@ -19,22 +19,23 @@ export default function HomeCategories({ categories, handleCategorySelect }) {
   return (
     <>
       <h5>Filter By Categories</h5>
-      {/* {JSON.stringify(selectedCategoryArray())} */}
+      {console.log(categories, typeof categories, "categories")}
       <ul>
-        {categories.map((category) => (
-          <li className="list-unstyled" key={category._id}>
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id={category._id}
-              value={selected[category._id] ? true : false}
-              onChange={() => handleClickCheckBox(category._id)}
-            />
-            <label htmlFor={category._id} className="form-check-label">
-              {category.name}
-            </label>
-          </li>
-        ))}
+        {categories.length > 0 &&
+          categories.map((category) => (
+            <li className="list-unstyled" key={category._id}>
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id={category._id}
+                value={selected[category._id] ? true : false}
+                onChange={() => handleClickCheckBox(category._id)}
+              />
+              <label htmlFor={category._id} className="form-check-label">
+                {category.name}
+              </label>
+            </li>
+          ))}
       </ul>
     </>
   );

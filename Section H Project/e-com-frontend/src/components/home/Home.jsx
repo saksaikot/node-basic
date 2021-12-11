@@ -52,7 +52,10 @@ export default function Home() {
       .catch((error) => setError("Failed to load products"));
 
     getCategories()
-      .then((response) => setCategories(response.data))
+      .then((response) => {
+        setCategories(response.data);
+        console.log(response.data, typeof response.data);
+      })
       .catch((error) => setError("Categories loading failed"));
   }, [sortBy, order, limit, skip, filter]);
 
