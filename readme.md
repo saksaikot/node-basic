@@ -1927,6 +1927,8 @@
 
 - # 1. Project setup
   - # 1.1 OAuth, file upload project setup
+    - init npm and `npm i cors dotenv express express-async-error joi jsonwebtoken mongoose morgan`
+    - copied tutorial files
 - # 2. Social login
   - # 2.1 User model (OAuth, file upload)
   - # 2.2 OAuth workflow
