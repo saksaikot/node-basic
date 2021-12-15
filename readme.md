@@ -1931,6 +1931,7 @@
     - copied tutorial files
 - # 2. Social login
   - # 2.1 User model (OAuth, file upload)
+    - created user model and added generateJWT method
   - # 2.2 OAuth workflow
   - # 2.3 Setting up router
   - # 2.4 Setting up google account
