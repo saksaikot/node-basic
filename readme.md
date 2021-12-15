@@ -1930,9 +1930,13 @@
     - init npm and `npm i cors dotenv express express-async-error joi jsonwebtoken mongoose morgan`
     - copied tutorial files
 - # 2. Social login
+
   - # 2.1 User model (OAuth, file upload)
     - created user model and added generateJWT method
   - # 2.2 OAuth workflow
+
+    - browser endpoint->app handler->OAuth provider(ie:google)->redirect to app path-> receive info->Mongodb->token->storage
+
   - # 2.3 Setting up router
   - # 2.4 Setting up google account
   - # 2.5 Passport google OAuth strategy
@@ -1940,6 +1944,7 @@
   - # 2.7 Redirect call back function
   - # 2.8 Storing user in database
   - # 2.9 Sending JWT as response
+
 - # 3. Uploading files with multer
   - # 3.1 Multer configuration
   - # 3.2 Upload function
