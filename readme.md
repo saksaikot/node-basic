@@ -1941,6 +1941,16 @@
     - added google auth routes
     - for passport we need to implement `/auth/google` and `/auth/google/redirect` for get request
   - # 2.4 Setting up google account
+
+    - goto google developer console
+    - create a project
+    - create oauth consent screen
+      - select user type external
+      - add test user email
+    - obtain oauth credential
+      - create credential=>oAuth client id-> web application(or other type)-> add Authorised JavaScript origins[http://localhost:3001]->add redirect uris[http://localhost:3001/auth/google/redirect]
+    - then save the google client id and client secret to env file
+
   - # 2.5 Passport google OAuth strategy
   - # 2.6 Passport authenticate
   - # 2.7 Redirect call back function
