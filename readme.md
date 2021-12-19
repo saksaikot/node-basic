@@ -1938,6 +1938,8 @@
     - browser endpoint->app handler->OAuth provider(ie:google)->redirect to app path-> receive info->Mongodb->token->storage
 
   - # 2.3 Setting up router
+    - added google auth routes
+    - for passport we need to implement `/auth/google` and `/auth/google/redirect` for get request
   - # 2.4 Setting up google account
   - # 2.5 Passport google OAuth strategy
   - # 2.6 Passport authenticate
