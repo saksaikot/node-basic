@@ -13,3 +13,5 @@ const strategy = new GoogleStrategy(
 );
 
 passport.use(strategy);
+
+module.exports = passport;

@@ -1960,6 +1960,10 @@
     - Strategy class accept an object with {clientID,clientSecret,callbackURL} and a callback
     - then we use the strategy object with passport, passport.use(strategy)
   - # 2.6 Passport authenticate
+    - used config authGoogle passport in authGoogle client
+    - we need to pass `passport.authenticate("google", { scope: ["profile"] })`
+    - here we use passport.authenticate first parameter "google", strategy type, then second object with scope parameter which accept array of scopes, here we used `profile`
+    - then we test our auth/google endpoint
   - # 2.7 Redirect call back function
   - # 2.8 Storing user in database
   - # 2.9 Sending JWT as response
