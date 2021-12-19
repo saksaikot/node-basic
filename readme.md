@@ -1952,6 +1952,13 @@
     - then save the google client id and client secret to env file
 
   - # 2.5 Passport google OAuth strategy
+    - install passport and passport-google-oauth20 `npm i passport and passport-google-oauth20`
+    - documentation http://www.passportjs.org/packages/passport-google-oauth20/
+    - create authGoogle config
+    - import passport and GoogleStrategy
+    - create strategy object
+    - Strategy class accept an object with {clientID,clientSecret,callbackURL} and a callback
+    - then we use the strategy object with passport, passport.use(strategy)
   - # 2.6 Passport authenticate
   - # 2.7 Redirect call back function
   - # 2.8 Storing user in database
