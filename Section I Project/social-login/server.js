@@ -6,7 +6,7 @@ const app = require("./app");
 mongoose
   .connect(process.env.MONGO_DB_URL_LOCAL)
   .then(() => console.log("Connected to MongoDB"))
-  .catch((error) => console.error("Mongodb connection Failed"));
+  .catch((error) => console.error("Mongodb connection Failed", error));
 
 const port = process.env.PORT || 3001;
 
