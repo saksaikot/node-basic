@@ -1965,6 +1965,10 @@
     - here we use passport.authenticate first parameter "google", strategy type, then second object with scope parameter which accept array of scopes, here we used `profile`
     - then we test our auth/google endpoint
   - # 2.7 Redirect call back function
+    - added redirect passport middleware
+    - added email scope in /auth/google uri
+    - added index page with login button
+    - google strategy cb function accept `accessToken,refreshToken,profile,cb` must use these four parameters
   - # 2.8 Storing user in database
   - # 2.9 Sending JWT as response
 

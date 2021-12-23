@@ -7,8 +7,9 @@ const strategy = new GoogleStrategy(
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: "http://localhost:3001/auth/google/redirect",
   },
-  () => {
-    console.log("callback from google strategy");
+  (accessToken, refreshToken, profile, cb) => {
+    console.log("callback from google strategy, the profile is", profile);
+    // cb();
   }
 );
 
