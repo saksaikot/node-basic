@@ -13,6 +13,10 @@ const userSchema = Schema(
       maxlength: 255,
     },
     password: String,
+    oAuth: {
+      google: { id: String },
+    },
+    picture: String,
   },
   { timestamps: true }
 );

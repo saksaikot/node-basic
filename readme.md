@@ -1970,6 +1970,7 @@
     - added index page with login button
     - google strategy cb function accept `accessToken,refreshToken,profile,cb` must use these four parameters
   - # 2.8 Storing user in database
+    - find the user, store the user if user not exist
   - # 2.9 Sending JWT as response
 
 - # 3. Uploading files with multer
