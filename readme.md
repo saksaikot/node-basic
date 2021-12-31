@@ -1978,6 +1978,26 @@
     - then we can use the data in redirect routing block
 
 - # 3. Uploading files with multer
+
   - # 3.1 Multer configuration
+
+    - install multer `npm i multer`
+    - config the multer in multer middleware
+    - create the multer storage object
+    - storage object will have destination and filename
+    - these two items takes a function with req,file and cb parameter
+    - in destination we call cb to set the storage location `cb(null, "media/img")`;
+    - filename function :
+
+      ```js
+      const ext = file.mimetype.split("/")[1];
+      const uniqueSuffix =
+        new Date.now() + "-" + Math.round(Math.random() * 1e9);
+      const filename = `${file.filename}-${uniqueSuffix}.${ext}`;
+      cb(null, filename);
+      ```
+
+    - the we export the multer `module.export = multer({ storage: multerStorage }).single("photo");
+
   - # 3.2 Upload function
   - # 3.3 Testing with postman
