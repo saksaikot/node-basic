@@ -1,5 +1,6 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const { _pick } = require("../helper/lodash");
 
 const { User } = require("../models/user");
 const strategy = new GoogleStrategy(
@@ -24,7 +25,11 @@ const strategy = new GoogleStrategy(
     //save user
 
     await user.save();
-    console.log(user);
+    const token = user.generateJWT();
+    cb(null, {
+      user: _pick(user, ["email", "_id"]),
+      token,
+    });
     // cb();
   }
 );

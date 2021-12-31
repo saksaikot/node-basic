@@ -6,9 +6,12 @@ router
 router
   .route("/redirect")
   .get(
-    passport.authenticate("google", { failureRedirect: "/login" }),
+    passport.authenticate("google", {
+      failureRedirect: "/login",
+      session: false,
+    }),
     (req, res) => {
-      return res.send("login success");
+      return res.send(req.user);
     }
   );
 

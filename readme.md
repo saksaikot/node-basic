@@ -1972,6 +1972,10 @@
   - # 2.8 Storing user in database
     - find the user, store the user if user not exist
   - # 2.9 Sending JWT as response
+    - generate JWT in google strategy after saving user
+    - now send the user email and \_id along with token data by calling cb
+    - cb(error,data), first parameter is any error and the second parameter will pass to next request pipe line and it will be store in req.user
+    - then we can use the data in redirect routing block
 
 - # 3. Uploading files with multer
   - # 3.1 Multer configuration
