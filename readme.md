@@ -2000,4 +2000,9 @@
     - the we export the multer `module.export = multer({ storage: multerStorage }).single("photo");
 
   - # 3.2 Upload function
+    - created upload function in photos post
+    - upload function take req,res and err
+    - if err is instance of multer.MulterError
+    - if any other error
+    - if no error we have req.file and req.body
   - # 3.3 Testing with postman
