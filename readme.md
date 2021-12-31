@@ -2006,3 +2006,5 @@
     - if any other error
     - if no error we have req.file and req.body
   - # 3.3 Testing with postman
+    - there was error with the tutorial code
+    - needed to use upload as middleware to handle with multerError
